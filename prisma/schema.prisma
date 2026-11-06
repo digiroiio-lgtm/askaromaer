@@ -1,0 +1,386 @@
+// AskARoamer data model
+// SQLite is used for local development. For production switch provider to "postgresql".
+// Status / role fields are strings (validated in src/lib/constants.ts) to stay portable.
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id           String   @id @default(cuid())
+  email        String   @unique
+  passwordHash String
+  name         String
+  avatarUrl    String?
+  locale       String   @default("tr")
+  isDemo       Boolean  @default(false)
+  suspended    Boolean  @default(false)
+  createdAt    DateTime @default(now())
+  updatedAt    DateTime @updatedAt
+
+  roles         UserRole[]
+  sessions      Session[]
+  roamerProfile RoamerProfile?
+  questions     Question[]
+  answers       Answer[]
+  bookings      Booking[]          @relation("TravelerBookings")
+  purchases     GuidePurchase[]
+  reviews       Review[]
+  payments      Payment[]
+  notifications Notification[]
+  reports       ModerationReport[] @relation("Reporter")
+  modActions    ModerationAction[] @relation("ModActor")
+  verifications VerificationRecord[] @relation("Reviewer")
+}
+
+// One account, many capabilities: TRAVELER (default), ROAMER, ADMIN
+model UserRole {
+  id        String   @id @default(cuid())
+  userId    String
+  role      String
+  createdAt DateTime @default(now())
+  user      User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@unique([userId, role])
+}
+
+model Session {
+  id        String   @id // sha256 of the cookie token
+  userId    String
+  expiresAt DateTime
+  createdAt DateTime @default(now())
+  user      User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@index([userId])
+}
+
+model City {
+  id        String   @id @default(cuid())
+  slug      String   @unique
+  region    String // asia | europe | north-america | south-america | middle-east | oceania
+  imageUrl  String
+  featured  Boolean  @default(false)
+  sortOrder Int      @default(0)
+  timezone  String   @default("UTC")
+  createdAt DateTime @default(now())
+
+  translations CityTranslation[]
+  roamers      RoamerProfile[]
+  questions    Question[]
+  guides       Guide[]
+}
+
+model CityTranslation {
+  id      String @id @default(cuid())
+  cityId  String
+  locale  String
+  name    String
+  country String
+  locative String // Turkish locative form e.g. "Lizbon’da"; equals name for other locales
+  intro   String
+  city    City   @relation(fields: [cityId], references: [id], onDelete: Cascade)
+
+  @@unique([cityId, locale])
+}
+
+model Category {
+  id        String @id @default(cuid())
+  slug      String @unique
+  imageUrl  String
+  sortOrder Int    @default(0)
+
+  translations CategoryTranslation[]
+  questions    Question[]
+  guides       Guide[]
+  roamers      RoamerProfile[]
+}
+
+model CategoryTranslation {
+  id          String   @id @default(cuid())
+  categoryId  String
+  locale      String
+  name        String
+  description String
+  category    Category @relation(fields: [categoryId], references: [id], onDelete: Cascade)
+
+  @@unique([categoryId, locale])
+}
+
+model RoamerProfile {
+  id          String    @id @default(cuid())
+  userId      String    @unique
+  slug        String    @unique
+  cityId      String
+  headline    String
+  bio         String
+  yearsInCity Int
+  languages   String // comma separated ISO codes: tr,en,fr
+  photoUrl    String?
+  status      String    @default("PENDING") // PENDING | APPROVED | REJECTED | SUSPENDED
+  verified    Boolean   @default(false)
+  verifiedAt  DateTime?
+  motivation  String?
+  createdAt   DateTime  @default(now())
+  updatedAt   DateTime  @updatedAt
+
+  user          User                 @relation(fields: [userId], references: [id], onDelete: Cascade)
+  city          City                 @relation(fields: [cityId], references: [id])
+  expertise     Category[]
+  offers        ConsultationOffer[]
+  slots         AvailabilitySlot[]
+  bookings      Booking[]
+  guides        Guide[]
+  reviews       Review[]
+  verifications VerificationRecord[]
+
+  @@index([cityId, status])
+}
+
+model VerificationRecord {
+  id           String    @id @default(cuid())
+  roamerId     String
+  type         String // RESIDENCE | IDENTITY | APPLICATION
+  evidence     String // free text / link supplied by applicant (no document storage in MVP)
+  status       String    @default("PENDING") // PENDING | APPROVED | REJECTED
+  note         String?
+  reviewerId   String?
+  reviewedAt   DateTime?
+  createdAt    DateTime  @default(now())
+  roamer       RoamerProfile @relation(fields: [roamerId], references: [id], onDelete: Cascade)
+  reviewer     User?         @relation("Reviewer", fields: [reviewerId], references: [id])
+}
+
+model ConsultationOffer {
+  id          String  @id @default(cuid())
+  roamerId    String
+  durationMin Int // 15 | 30 | 60
+  priceCents  Int
+  currency    String  @default("EUR")
+  active      Boolean @default(true)
+  roamer      RoamerProfile @relation(fields: [roamerId], references: [id], onDelete: Cascade)
+  bookings    Booking[]
+
+  @@unique([roamerId, durationMin])
+}
+
+model AvailabilitySlot {
+  id       String   @id @default(cuid())
+  roamerId String
+  startsAt DateTime
+  endsAt   DateTime
+  isBooked Boolean  @default(false)
+  roamer   RoamerProfile @relation(fields: [roamerId], references: [id], onDelete: Cascade)
+  booking  Booking?
+
+  @@unique([roamerId, startsAt])
+}
+
+model Booking {
+  id          String   @id @default(cuid())
+  travelerId  String
+  roamerId    String
+  offerId     String
+  slotId      String?  @unique
+  startsAt    DateTime
+  durationMin Int
+  priceCents  Int
+  currency    String
+  status      String   @default("PENDING_PAYMENT") // PENDING_PAYMENT | CONFIRMED | COMPLETED | CANCELLED | REFUNDED
+  note        String?
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+
+  traveler User              @relation("TravelerBookings", fields: [travelerId], references: [id])
+  roamer   RoamerProfile     @relation(fields: [roamerId], references: [id])
+  offer    ConsultationOffer @relation(fields: [offerId], references: [id])
+  slot     AvailabilitySlot? @relation(fields: [slotId], references: [id])
+  payments Payment[]
+  review   Review?
+
+  @@index([travelerId])
+  @@index([roamerId])
+}
+
+model Question {
+  id         String   @id @default(cuid())
+  slug       String   @unique
+  locale     String
+  title      String
+  body       String
+  authorId   String
+  cityId     String
+  categoryId String
+  status     String   @default("PUBLISHED") // PUBLISHED | HIDDEN
+  createdAt  DateTime @default(now())
+  updatedAt  DateTime @updatedAt
+
+  author   User     @relation(fields: [authorId], references: [id])
+  city     City     @relation(fields: [cityId], references: [id])
+  category Category @relation(fields: [categoryId], references: [id])
+  answers  Answer[]
+
+  @@index([cityId])
+  @@index([categoryId])
+  @@index([createdAt])
+}
+
+model Answer {
+  id         String   @id @default(cuid())
+  questionId String
+  authorId   String
+  body       String
+  status     String   @default("PUBLISHED") // PUBLISHED | HIDDEN
+  createdAt  DateTime @default(now())
+  updatedAt  DateTime @updatedAt
+
+  question Question @relation(fields: [questionId], references: [id], onDelete: Cascade)
+  author   User     @relation(fields: [authorId], references: [id])
+
+  @@index([questionId])
+}
+
+model Guide {
+  id          String    @id @default(cuid())
+  slug        String    @unique
+  locale      String
+  roamerId    String
+  cityId      String
+  categoryId  String
+  title       String
+  summary     String
+  description String
+  coverUrl    String
+  priceCents  Int
+  currency    String    @default("EUR")
+  status      String    @default("DRAFT") // DRAFT | PENDING_REVIEW | PUBLISHED | REJECTED
+  reviewNote  String?
+  publishedAt DateTime?
+  createdAt   DateTime  @default(now())
+  updatedAt   DateTime  @updatedAt
+
+  roamer    RoamerProfile  @relation(fields: [roamerId], references: [id])
+  city      City           @relation(fields: [cityId], references: [id])
+  category  Category       @relation(fields: [categoryId], references: [id])
+  chapters  GuideChapter[]
+  purchases GuidePurchase[]
+  reviews   Review[]
+
+  @@index([status, cityId])
+}
+
+model GuideChapter {
+  id        String  @id @default(cuid())
+  guideId   String
+  position  Int
+  title     String
+  content   String
+  isPreview Boolean @default(false)
+  guide     Guide   @relation(fields: [guideId], references: [id], onDelete: Cascade)
+
+  @@unique([guideId, position])
+}
+
+model GuidePurchase {
+  id        String   @id @default(cuid())
+  guideId   String
+  userId    String
+  paymentId String?  @unique
+  createdAt DateTime @default(now())
+  guide     Guide    @relation(fields: [guideId], references: [id])
+  user      User     @relation(fields: [userId], references: [id])
+  payment   Payment? @relation(fields: [paymentId], references: [id])
+
+  @@unique([guideId, userId])
+}
+
+// A review is only allowed for a COMPLETED booking or a purchased guide (enforced server-side)
+model Review {
+  id        String   @id @default(cuid())
+  authorId  String
+  rating    Int // 1..5
+  comment   String
+  roamerId  String?
+  guideId   String?
+  bookingId String?  @unique
+  status    String   @default("PUBLISHED") // PUBLISHED | HIDDEN
+  createdAt DateTime @default(now())
+
+  author  User           @relation(fields: [authorId], references: [id])
+  roamer  RoamerProfile? @relation(fields: [roamerId], references: [id])
+  guide   Guide?         @relation(fields: [guideId], references: [id])
+  booking Booking?       @relation(fields: [bookingId], references: [id])
+
+  @@unique([authorId, guideId])
+}
+
+model Payment {
+  id                  String   @id @default(cuid())
+  userId              String
+  purpose             String // BOOKING | GUIDE
+  bookingId           String?
+  amountCents         Int
+  platformFeeCents    Int
+  payeeEarningsCents  Int
+  payeeRoamerId       String
+  currency            String
+  provider            String // test | stripe
+  providerRef         String?
+  status              String   @default("PENDING") // PENDING | SUCCEEDED | FAILED | REFUNDED
+  createdAt           DateTime @default(now())
+  updatedAt           DateTime @updatedAt
+
+  user     User           @relation(fields: [userId], references: [id])
+  booking  Booking?       @relation(fields: [bookingId], references: [id])
+  purchase GuidePurchase?
+
+  @@index([payeeRoamerId, status])
+}
+
+model Notification {
+  id        String    @id @default(cuid())
+  userId    String
+  type      String
+  title     String
+  body      String
+  link      String?
+  readAt    DateTime?
+  createdAt DateTime  @default(now())
+  user      User      @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@index([userId, readAt])
+}
+
+// Complaints / flags raised by users
+model ModerationReport {
+  id          String    @id @default(cuid())
+  reporterId  String
+  targetType  String // QUESTION | ANSWER | GUIDE | ROAMER | REVIEW
+  targetId    String
+  reason      String
+  status      String    @default("OPEN") // OPEN | RESOLVED | DISMISSED
+  createdAt   DateTime  @default(now())
+  resolvedAt  DateTime?
+  reporter    User      @relation("Reporter", fields: [reporterId], references: [id])
+}
+
+// Audit trail of admin decisions
+model ModerationAction {
+  id         String   @id @default(cuid())
+  actorId    String
+  targetType String
+  targetId   String
+  action     String
+  note       String?
+  createdAt  DateTime @default(now())
+  actor      User     @relation("ModActor", fields: [actorId], references: [id])
+}
+
+model PlatformSetting {
+  key   String @id
+  value String
+}
