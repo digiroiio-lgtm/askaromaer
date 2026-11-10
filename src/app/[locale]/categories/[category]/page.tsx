@@ -3,11 +3,11 @@ import Image from "next/image";
 import { notFound } from "next/navigation";
 import { resolveLocale } from "@/i18n";
 import { href } from "@/i18n/config";
-import { buildMetadata, breadcrumbLd, collectionLd } from "@/lib/seo";
+import { buildMetadata, breadcrumbLd, collectionLd, faqLd } from "@/lib/seo";
 import { getAllCities, getCategories, getCategory, getGuides, getQuestions, getRoamers } from "@/lib/queries";
 import { MIN_INDEX_ITEMS } from "@/lib/constants";
 import { fmt } from "@/lib/format";
-import { Breadcrumbs, HubCta, JsonLd, SectionHeader, CtaBand, EmptyState } from "@/components/ui";
+import { Breadcrumbs, HubContent, HubCta, JsonLd, SectionHeader, CtaBand, EmptyState } from "@/components/ui";
 import { GuideTile, QuestionRow, RoamerCard } from "@/components/cards";
 
 type Props = { params: Promise<{ locale: string; category: string }> };
@@ -43,6 +43,7 @@ export default async function CategoryPage({ params }: Props) {
       <JsonLd data={[
         breadcrumbLd([{ name: t.nav.home, url: href(locale) }, { name: t.categories.title, url: href(locale, "/categories") }, { name: cat.name, url }]),
         collectionLd({ name: cat.name, description: cat.description, url, items: questions.items.map((q) => ({ name: q.title, url: href(locale, `/questions/${q.slug}`) })) }),
+        ...(cat.faq.length ? [faqLd(cat.faq)] : []),
       ]} />
       <section className="relative -mt-[72px] pt-[72px] overflow-hidden">
         <div className="absolute inset-0"><Image src={cat.imageUrl} alt="" fill priority sizes="100vw" className="object-cover" /><div className="absolute inset-0 bg-gradient-to-r from-teal-950/90 via-teal-950/60 to-teal-950/10" /></div>
@@ -53,6 +54,7 @@ export default async function CategoryPage({ params }: Props) {
         </div>
       </section>
 
+      <HubContent title={cat.name} body={cat.body} faq={cat.faq} faqTitle={t.common.faqTitle} />
       <HubCta title={cat.name} primary={t.questions.askButton} primaryHref={href(locale, "/questions/ask", { category: slug })} secondary={t.nav.roamers} secondaryHref={href(locale, "/roamers", { expertise: slug })} />
       <section className="container-x mt-10">
         <SectionHeader title={t.nav.questions} link={href(locale, "/questions", { category: slug })} linkLabel={t.common.seeAll} />

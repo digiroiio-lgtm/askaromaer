@@ -83,6 +83,8 @@ model CityTranslation {
   country String
   locative String // Turkish locative form e.g. "Lizbon’da"; equals name for other locales
   intro   String
+  body    String @default("") // long-form text, paragraphs separated by blank line
+  faq     String @default("[]") // JSON: [{ q, a }]
   city    City   @relation(fields: [cityId], references: [id], onDelete: Cascade)
 
   @@unique([cityId, locale])
@@ -106,6 +108,8 @@ model CategoryTranslation {
   locale      String
   name        String
   description String
+  body        String   @default("")
+  faq         String   @default("[]")
   category    Category @relation(fields: [categoryId], references: [id], onDelete: Cascade)
 
   @@unique([categoryId, locale])

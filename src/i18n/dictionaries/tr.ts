@@ -49,6 +49,7 @@ const tr = {
     showMore: "Daha fazla göster",
     showLess: "Daha az göster",
     seeAll: "Tümünü Gör",
+    faqTitle: "Sık sorulan sorular",
     otherCities: "Diğer şehirler",
     relatedTopics: "İlgili konular",
     popularCities: "Popüler şehirler",

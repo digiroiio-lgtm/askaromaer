@@ -3,12 +3,12 @@ import Image from "next/image";
 import { notFound } from "next/navigation";
 import { resolveLocale } from "@/i18n";
 import { href } from "@/i18n/config";
-import { buildMetadata, breadcrumbLd } from "@/lib/seo";
+import { buildMetadata, breadcrumbLd, faqLd } from "@/lib/seo";
 import { getAllCities, getCategories, getCity, getGuides, getQuestions, getRoamers } from "@/lib/queries";
 import { MIN_INDEX_ITEMS } from "@/lib/constants";
 import { fmt, num } from "@/lib/format";
 import { Icon } from "@/components/Icon";
-import { Breadcrumbs, HubCta, JsonLd, SectionHeader, CtaBand, EmptyState } from "@/components/ui";
+import { Breadcrumbs, HubContent, HubCta, JsonLd, SectionHeader, CtaBand, EmptyState } from "@/components/ui";
 import { GuideTile, QuestionRow, RoamerCard } from "@/components/cards";
 
 type Props = { params: Promise<{ locale: string; city: string }> };
@@ -40,6 +40,7 @@ export default async function CityPage({ params }: Props) {
       <JsonLd data={[
         breadcrumbLd([{ name: t.nav.home, url: href(locale) }, { name: t.cities.title, url: href(locale, "/cities") }, { name: city.name, url: href(locale, `/cities/${slug}`) }]),
         { "@context": "https://schema.org", "@type": "Place", name: city.name, description: city.intro, url: `${href(locale, `/cities/${slug}`)}`, containedInPlace: { "@type": "Country", name: city.country }, address: { "@type": "PostalAddress", addressCountry: city.country }, image: city.imageUrl },
+        ...(city.faq.length ? [faqLd(city.faq)] : []),
       ]} />
       <section className="relative -mt-[72px] pt-[72px] overflow-hidden">
         <div className="absolute inset-0"><Image src={city.imageUrl} alt="" fill priority sizes="100vw" className="object-cover" /><div className="absolute inset-0 bg-gradient-to-r from-teal-950/90 via-teal-950/60 to-teal-950/10" /></div>
@@ -60,6 +61,7 @@ export default async function CityPage({ params }: Props) {
         </div>
       </section>
 
+      <HubContent title={city.name} body={city.body} faq={city.faq} faqTitle={t.common.faqTitle} />
       <HubCta title={fmt(t.cities.askAbout, vars)} primary={t.questions.askButton} primaryHref={href(locale, "/questions/ask", { city: slug })} secondary={t.cities.exploreRoamers} secondaryHref={href(locale, `/roamers/${slug}`)} />
       <section className="container-x mt-10">
         <SectionHeader title={fmt(t.cities.cityRoamers, vars)} link={href(locale, `/roamers/${slug}`)} linkLabel={t.common.seeAll} />

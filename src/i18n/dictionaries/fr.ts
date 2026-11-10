@@ -51,6 +51,7 @@ const fr: Dictionary = {
     showMore: "Voir plus",
     showLess: "Voir moins",
     seeAll: "Tout voir",
+    faqTitle: "Questions fréquentes",
     otherCities: "Autres villes",
     relatedTopics: "Sujets liés",
     popularCities: "Villes populaires",

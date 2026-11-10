@@ -222,3 +222,32 @@ export function HubCta({ title, primary, primaryHref, secondary, secondaryHref }
     </>
   );
 }
+
+/** Long-form hub text + FAQ accordion (native <details>, content stays in HTML for crawlers). */
+export function HubContent({ title, body, faq, faqTitle }: { title: string; body: string; faq: { q: string; a: string }[]; faqTitle: string }) {
+  const paras = body.split(/\n{2,}/).map((p) => p.trim()).filter(Boolean);
+  if (!paras.length && !faq.length) return null;
+  return (
+    <section className="container-x mt-10 grid lg:grid-cols-[1.2fr_1fr] gap-8">
+      {paras.length > 0 && (
+        <div>
+          <h2 className="text-[26px] md:text-[30px] leading-tight">{title}</h2>
+          <div className="mt-3 space-y-3 text-[16px] leading-relaxed text-ink-2">{paras.map((p, i) => <p key={i}>{p}</p>)}</div>
+        </div>
+      )}
+      {faq.length > 0 && (
+        <div>
+          <h2 className="text-[26px] md:text-[30px] leading-tight">{faqTitle}</h2>
+          <div className="mt-3 space-y-2">
+            {faq.map((f, i) => (
+              <details key={i} className="card px-4 py-3 group">
+                <summary className="cursor-pointer font-semibold text-[15px]">{f.q}</summary>
+                <p className="mt-2 text-[14px] leading-relaxed text-ink-2">{f.a}</p>
+              </details>
+            ))}
+          </div>
+        </div>
+      )}
+    </section>
+  );
+}

@@ -72,3 +72,11 @@ export function collectionLd(m: { name: string; description?: string; url: strin
     },
   };
 }
+
+export function faqLd(faq: { q: string; a: string }[]) {
+  return {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    mainEntity: faq.map((f) => ({ "@type": "Question", name: f.q, acceptedAnswer: { "@type": "Answer", text: f.a } })),
+  };
+}

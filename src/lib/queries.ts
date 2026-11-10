@@ -13,6 +13,16 @@ export function pickTr<T extends { locale: string }>(entity: WithTr<T>, locale: 
 
 const now = () => new Date();
 
+export type Faq = { q: string; a: string };
+export function parseFaq(raw: string | null | undefined): Faq[] {
+  try {
+    const v = JSON.parse(raw ?? "[]");
+    return Array.isArray(v) ? v.filter((x) => x && typeof x.q === "string" && typeof x.a === "string") : [];
+  } catch {
+    return [];
+  }
+}
+
 /* ---------- categories ---------- */
 
 export const getCategories = cache(async (locale: Locale) => {
@@ -25,7 +35,7 @@ export const getCategories = cache(async (locale: Locale) => {
   });
   return cats.map((c) => {
     const tr = pickTr(c, locale);
-    return { id: c.id, slug: c.slug, imageUrl: c.imageUrl, name: tr.name, description: tr.description, questionCount: c._count.questions, guideCount: c._count.guides };
+    return { id: c.id, slug: c.slug, imageUrl: c.imageUrl, name: tr.name, description: tr.description, body: tr.body, faq: parseFaq(tr.faq), questionCount: c._count.questions, guideCount: c._count.guides };
   });
 });
 export async function getCategory(locale: Locale, slug: string) {
@@ -71,6 +81,8 @@ export const getAllCities = cache(async (locale: Locale) => {
       locative: tr.locative,
       country: tr.country,
       intro: tr.intro,
+      body: tr.body,
+      faq: parseFaq(tr.faq),
       questionCount: c._count.questions,
       roamerCount: c._count.roamers,
       guideCount: c._count.guides,
