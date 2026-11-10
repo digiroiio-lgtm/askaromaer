@@ -8,7 +8,7 @@ import { getCurrentUser } from "@/lib/auth";
 import { can } from "@/lib/permissions";
 import { date, fmt, excerpt, timeAgo } from "@/lib/format";
 import { Icon, VerifiedBadge } from "@/components/Icon";
-import { Avatar, Breadcrumbs, JsonLd, Notice } from "@/components/ui";
+import { Avatar, Breadcrumbs, HubCta, JsonLd, Notice } from "@/components/ui";
 import { QuestionRow } from "@/components/cards";
 import { ActionForm, Textarea, Input } from "@/components/forms";
 import { SubmitButton } from "@/components/client";
@@ -33,9 +33,25 @@ export default async function QuestionPage({ params }: Props) {
   if (!q) notFound();
   if (q.locale !== locale) permanentRedirect(href(q.locale as Locale, `/questions/${slug}`));
   if (q.status !== "PUBLISHED" && !can.isAdmin(user)) notFound();
-  const related = (await getQuestions(locale, { cities: [q.citySlug], pageSize: 4 })).items.filter((x) => x.id !== q.id).slice(0, 3);
+  // related: same city + category first, then same city, then same category (deduped, most-answered first)
+  const [both, sameCity, sameCat] = await Promise.all([
+    getQuestions(locale, { cities: [q.citySlug], categories: [q.categorySlug], pageSize: 6, sort: "popular" }),
+    getQuestions(locale, { cities: [q.citySlug], pageSize: 6, sort: "popular" }),
+    getQuestions(locale, { categories: [q.categorySlug], pageSize: 6, sort: "popular" }),
+  ]);
+  const seen = new Set([q.id]);
+  const related = [...both.items, ...sameCity.items, ...sameCat.items].filter((x) => !seen.has(x.id) && seen.add(x.id)).slice(0, 5);
   const url = href(locale, `/questions/${slug}`);
 
+  const answerLd = (a: (typeof q.answers)[number]) => ({
+    "@type": "Answer",
+    text: a.body,
+    datePublished: a.createdAt.toISOString(),
+    url: `${abs(url)}#a-${a.id}`,
+    author: { "@type": "Person", name: a.author.name, ...(a.author.roamerProfile?.status === "APPROVED" ? { url: abs(href(locale, `/roamer/${a.author.roamerProfile.slug}`)) } : {}) },
+  });
+  // accepted answer = earliest answer from an approved Roamer (no accept flag exists in the data model)
+  const bestAnswer = q.answers.find((a) => a.author.roamerProfile?.status === "APPROVED");
   const qaLd = q.answers.length
     ? {
         "@context": "https://schema.org",
@@ -45,15 +61,11 @@ export default async function QuestionPage({ params }: Props) {
           name: q.title,
           text: q.body,
           answerCount: q.answers.length,
+          inLanguage: q.locale,
+          ...(bestAnswer ? { acceptedAnswer: answerLd(bestAnswer) } : {}),
           datePublished: q.createdAt.toISOString(),
           author: { "@type": "Person", name: q.author.name },
-          suggestedAnswer: q.answers.map((a) => ({
-            "@type": "Answer",
-            text: a.body,
-            datePublished: a.createdAt.toISOString(),
-            url: `${abs(url)}#a-${a.id}`,
-            author: { "@type": "Person", name: a.author.name, ...(a.author.roamerProfile?.status === "APPROVED" ? { url: abs(href(locale, `/roamer/${a.author.roamerProfile.slug}`)) } : {}) },
-          })),
+          suggestedAnswer: q.answers.filter((a) => a !== bestAnswer).map(answerLd),
         },
       }
     : null;
@@ -67,7 +79,7 @@ export default async function QuestionPage({ params }: Props) {
         <article className="mt-5">
           <div className="flex flex-wrap items-center gap-2 text-[13px]">
             <Link href={href(locale, `/cities/${q.citySlug}`)} className="inline-flex items-center gap-1 font-semibold"><Icon name="pin" size={15} className="text-brand" />{q.cityName}</Link>
-            <Link href={href(locale, "/questions", { category: q.categorySlug })} className="chip bg-brand-50">{q.categoryName}</Link>
+            <Link href={href(locale, `/categories/${q.categorySlug}`)} className="chip bg-brand-50">{q.categoryName}</Link>
           </div>
           <h1 className="text-[32px] md:text-[42px] leading-tight mt-3">{q.title}</h1>
           <div className="flex items-center gap-2 mt-3 text-[13px] text-ink-2">
@@ -130,12 +142,19 @@ export default async function QuestionPage({ params }: Props) {
           )}
         </section>
 
+        <HubCta className="mt-8" sticky={false} title={fmt(t.cities.askAbout, { city: q.cityName, cityIn: q.cityLocative })} primary={t.questions.askButton} primaryHref={href(locale, "/questions/ask", { city: q.citySlug, category: q.categorySlug })} secondary={t.cities.exploreRoamers} secondaryHref={href(locale, `/roamers/${q.citySlug}`)} />
+
         {related.length > 0 && (
           <section className="mt-10">
             <h2 className="text-[24px] mb-3">{t.questions.related}</h2>
             <div className="space-y-3">{related.map((r) => <QuestionRow key={r.id} q={r} locale={locale} t={t} />)}</div>
           </section>
         )}
+        <nav aria-label={t.common.relatedTopics} className="mt-8 flex flex-wrap gap-2 text-[13px]">
+          <Link className="chip hover:bg-brand-50" href={href(locale, `/cities/${q.citySlug}`)}>{q.cityName}</Link>
+          <Link className="chip hover:bg-brand-50" href={href(locale, `/categories/${q.categorySlug}`)}>{q.categoryName}</Link>
+          <Link className="chip hover:bg-brand-50" href={href(locale, "/guides", { city: q.citySlug })}>{t.nav.guides}</Link>
+        </nav>
       </div>
       <div className="h-12" />
     </>

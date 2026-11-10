@@ -203,10 +203,10 @@ export function EmptyState({ text, cta, href }: { text: string; cta?: string; hr
 }
 
 /** Lead CTA: inline card + sticky bottom bar on mobile. */
-export function HubCta({ title, primary, primaryHref, secondary, secondaryHref }: { title: string; primary: string; primaryHref: string; secondary?: string; secondaryHref?: string }) {
+export function HubCta({ title, primary, primaryHref, secondary, secondaryHref, sticky = true, className = "container-x mt-10" }: { title: string; primary: string; primaryHref: string; secondary?: string; secondaryHref?: string; sticky?: boolean; className?: string }) {
   return (
     <>
-      <section className="container-x mt-10">
+      <section className={className}>
         <div className="card p-6 flex flex-col md:flex-row md:items-center gap-4 justify-between">
           <h2 className="text-[24px] md:text-[28px] leading-tight">{title}</h2>
           <div className="flex flex-wrap gap-3">
@@ -215,10 +215,10 @@ export function HubCta({ title, primary, primaryHref, secondary, secondaryHref }
           </div>
         </div>
       </section>
-      <div className="md:hidden h-16" aria-hidden />
-      <div className="md:hidden fixed bottom-0 inset-x-0 z-40 bg-white/95 backdrop-blur border-t border-line p-3">
+      {sticky && <div className="md:hidden h-16" aria-hidden />}
+      {sticky && <div className="md:hidden fixed bottom-0 inset-x-0 z-40 bg-white/95 backdrop-blur border-t border-line p-3">
         <Link href={primaryHref} className="btn btn-primary w-full py-3">{primary} <Icon name="arrowRight" size={18} /></Link>
-      </div>
+      </div>}
     </>
   );
 }
