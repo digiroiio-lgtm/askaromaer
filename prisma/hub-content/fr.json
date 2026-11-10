@@ -1,0 +1,261 @@
+{
+ "cities": {
+  "bali": {
+   "body": "Bali séduit surtout les nomades digitaux, les freelances et les voyageurs en quête d'un rythme plus lent, mais l'île est très contrastée : le choix du coin compte autant que celui du logement. Canggu attire une communauté jeune, tournée vers le surf et les cafés-coworkings. Ubud, au cœur des rizières, convient à ceux qui cherchent le calme, le yoga et la nature. Seminyak et Sanur offrent un cadre plus aéré ou plus familial, tandis qu'Uluwatu séduit les amateurs de falaises et de vagues.\n\nAu quotidien, la plupart des gens se déplacent en scooter, la circulation peut être dense et les trajets plus longs qu'on ne l'imagine. La qualité de la connexion internet varie d'une villa à l'autre et d'un quartier à l'autre : mieux vaut la tester avant de s'engager.\n\nAvant de partir, il est utile de poser vos questions à quelqu'un qui vit sur place : choix du quartier, type de visa, assurance, saison des pluies, logement à long terme. Un Roamer installé à Bali pourra vous répondre selon votre situation réelle.",
+   "faq": [
+    {
+     "q": "Quel quartier de Bali choisir quand on est nomade digital ?",
+     "a": "Canggu est le plus animé, avec de nombreux coworkings et une communauté internationale. Ubud est plus calme et verdoyant. Sanur et Seminyak sont des compromis plus posés. Le bon choix dépend de votre rythme de travail, de votre budget et de votre goût pour le bruit."
+    },
+    {
+     "q": "Peut-on vraiment travailler à distance à Bali avec une bonne connexion ?",
+     "a": "Oui, beaucoup de nomades y travaillent, mais la qualité de la connexion dépend du lieu. Demandez un test de débit avant de louer, repérez un coworking en secours et prévoyez une solution de partage de connexion sur votre téléphone."
+    },
+    {
+     "q": "Quel visa faut-il pour vivre et travailler à Bali ?",
+     "a": "Les règles d'entrée et de séjour en Indonésie changent souvent, tout comme les conditions liées au travail à distance. Vérifiez toujours auprès des sources officielles et, si possible, auprès d'un Roamer résidant sur place avant de réserver quoi que ce soit."
+    }
+   ]
+  },
+  "lisbon": {
+   "body": "Lisbonne convient aux télétravailleurs, aux freelances, aux entrepreneurs et aux familles qui cherchent une capitale à taille humaine, ensoleillée et ouverte sur l'international. Chaque quartier a son caractère : Alfama et Graça sont pittoresques et vallonnés, Príncipe Real et Campo de Ourique sont résidentiels et agréables, Baixa et Chiado sont centraux et touristiques, tandis qu'Alcântara ou Marvila attirent par leurs lieux créatifs et leurs anciens entrepôts.\n\nAu quotidien, le métro, les trams et les bus couvrent bien le centre, mais les collines fatiguent et certaines rues anciennes sont étroites. Les espaces de coworking et les cafés adaptés au travail sont faciles à trouver, et l'internet résidentiel est en général fiable, même si la qualité varie selon les immeubles. Le logement est souvent le principal casse-tête, avec une forte demande.\n\nUn Roamer vivant à Lisbonne peut vous aider à choisir un quartier, à comprendre les démarches administratives, à repérer les pièges de la location ou à découvrir la vie locale hors des circuits habituels. N'hésitez pas à lui poser vos questions avant votre arrivée.",
+   "faq": [
+    {
+     "q": "Quel quartier de Lisbonne choisir pour s'installer quand on est expatrié ?",
+     "a": "Príncipe Real et Campo de Ourique sont appréciés pour leur confort au quotidien, Alfama et Graça pour leur charme, Alcântara pour son ambiance créative. Le meilleur choix dépend de votre budget, du bruit que vous tolérez et de votre besoin de transports."
+    },
+    {
+     "q": "Est-il facile de trouver un logement à Lisbonne ?",
+     "a": "Le marché est tendu, surtout dans le centre. Prévoyez du temps, méfiez-vous des annonces trop belles et préférez visiter ou faire visiter par un contact local. Un Roamer sur place peut vous donner des repères sur les quartiers et les pratiques courantes."
+    },
+    {
+     "q": "Lisbonne est-elle une bonne ville pour travailler à distance ?",
+     "a": "Oui, la ville compte beaucoup de coworkings, de cafés adaptés et une communauté internationale active. Vérifiez la connexion du logement avant de signer et gardez une option de secours, comme un coworking proche, pour les jours de coupure."
+    }
+   ]
+  },
+  "berlin": {
+   "body": "Berlin attire les créatifs, les développeurs, les startuppers et les étudiants, avec une scène culturelle foisonnante et une vie nocturne réputée. La ville est immense et décentralisée, si bien que chaque quartier a sa propre identité : Kreuzberg et Neukölln sont multiculturels et animés, Friedrichshain est alternatif, Prenzlauer Berg est plus calme et familial, Mitte est central et très fréquenté par les professionnels.\n\nLes transports en commun, avec le U-Bahn, le S-Bahn, les trams et les bus, sont étendus et permettent de vivre sans voiture. Le vélo est aussi très répandu. Les coworkings et les événements de networking sont nombreux, notamment dans la tech. La principale difficulté pour les nouveaux arrivants reste le logement, souvent compétitif, ainsi que les démarches administratives, qui peuvent être longues et en allemand.\n\nUn Roamer installé à Berlin peut vous éclairer sur le choix du quartier, la recherche d'un appartement, l'inscription administrative, la vie sociale ou le monde de la startup. Posez-lui vos questions concrètes avant de vous lancer.",
+   "faq": [
+    {
+     "q": "Quel quartier de Berlin choisir quand on arrive en expatrié ?",
+     "a": "Kreuzberg, Neukölln et Friedrichshain sont vivants et jeunes. Prenzlauer Berg est plus calme et convient aux familles. Mitte est pratique pour le travail. Visitez plusieurs zones à différentes heures, car l'ambiance change beaucoup d'une rue à l'autre."
+    },
+    {
+     "q": "Faut-il parler allemand pour vivre à Berlin ?",
+     "a": "On s'en sort en anglais dans la tech, les cafés et la vie sociale, mais l'allemand facilite beaucoup l'administration, la recherche de logement et l'intégration à long terme. Même quelques bases font une vraie différence au quotidien."
+    },
+    {
+     "q": "Comment trouver un appartement à Berlin ?",
+     "a": "La demande est forte, il faut donc préparer un dossier complet et rester réactif. Méfiez-vous des arnaques aux acomptes à distance. Un Roamer local peut vous expliquer les usages et les plateformes courantes sans promettre de miracle."
+    }
+   ]
+  },
+  "barcelona": {
+   "body": "Barcelone convient aux nomades digitaux, aux étudiants, aux jeunes actifs et aux familles qui aiment le mélange de mer, de culture et de vie urbaine. L'Eixample est élégant et bien desservi, Gràcia garde une atmosphère de village, le Born et le quartier gothique sont très touristiques, tandis que Poblenou, ancien quartier industriel, accueille de nombreuses entreprises créatives et des coworkings près de la plage.\n\nLe métro, les bus, les trams et le vélo permettent de se déplacer facilement. Beaucoup de télétravailleurs combinent un logement dans un quartier résidentiel et un coworking ou un café. Le rythme de vie est plus tardif qu'en France, et l'été peut être chaud et très fréquenté. Comme dans beaucoup de grandes villes, la location est un sujet sensible, avec une forte demande.\n\nUn Roamer vivant à Barcelone peut vous orienter sur le choix du quartier, les démarches de résidence, la vie locale ou les bonnes adresses pour travailler. Il connaît aussi les petites habitudes qui facilitent l'installation.",
+   "faq": [
+    {
+     "q": "Quel quartier de Barcelone choisir quand on télétravaille ?",
+     "a": "Poblenou est pratique pour les coworkings et la proximité de la mer, Gràcia pour l'ambiance, l'Eixample pour la centralité et les transports. Évitez de choisir sur photo seulement : le bruit et l'affluence touristique varient beaucoup."
+    },
+    {
+     "q": "Faut-il parler espagnol ou catalan pour s'installer à Barcelone ?",
+     "a": "On peut commencer en anglais ou en français dans certains milieux, mais l'espagnol est très utile au quotidien. Le catalan est apprécié et omniprésent dans l'administration et l'espace public. Quelques bases facilitent clairement l'intégration."
+    },
+    {
+     "q": "Barcelone est-elle une ville sûre pour les expatriés ?",
+     "a": "Dans l'ensemble, oui, mais les vols à la tire sont fréquents dans les zones touristiques et les transports. Restez attentif, gardez vos affaires devant vous et demandez conseil à un Roamer local sur les secteurs à éviter selon l'heure."
+    }
+   ]
+  },
+  "bangkok": {
+   "body": "Bangkok convient aux nomades digitaux, aux expatriés en poste, aux entrepreneurs et aux voyageurs qui aiment les grandes métropoles dynamiques. La ville est vaste et contrastée : Sukhumvit, avec Thonglor et Ekkamai, est moderne et très internationale ; Ari est plus tranquille avec ses cafés ; Silom et Sathorn concentrent bureaux et immeubles d'affaires ; la vieille ville reste plus traditionnelle et touristique.\n\nLe BTS Skytrain et le métro MRT facilitent les déplacements, mais la circulation en surface peut être éprouvante, ce qui influence fortement le choix du logement : habiter près d'une station change le quotidien. Les centres commerciaux et les cafés sont souvent climatisés et pratiques pour travailler, et les coworkings sont nombreux. La chaleur et l'humidité demandent un temps d'adaptation.\n\nUn Roamer résidant à Bangkok peut vous conseiller sur le quartier, le type de logement, les démarches de séjour, la vie pratique ou les bons plans pour s'organiser. N'hésitez pas à lui poser vos questions avant le départ.",
+   "faq": [
+    {
+     "q": "Quel quartier de Bangkok choisir pour vivre quand on est expatrié ?",
+     "a": "Sukhumvit est le plus pratique pour les expatriés, Ari est plus calme, Silom pratique pour les bureaux. Privilégiez la proximité d'une station BTS ou MRT : elle compte souvent plus que la taille du logement, à cause des embouteillages."
+    },
+    {
+     "q": "Bangkok est-elle adaptée au télétravail ?",
+     "a": "Oui, la ville offre beaucoup de coworkings, de cafés climatisés et une bonne connexion dans de nombreux immeubles. Testez toutefois le débit de votre logement et prévoyez un plan B pour les jours de forte chaleur ou de pluie."
+    },
+    {
+     "q": "Comment se déplacer facilement à Bangkok ?",
+     "a": "Le BTS Skytrain et le MRT sont les plus fiables aux heures de pointe. Les taxis et les applications de transport complètent le réseau, mais la circulation peut être lente. Choisir un logement proche d'une station simplifie beaucoup la vie."
+    }
+   ]
+  },
+  "tokyo": {
+   "body": "Tokyo s'adresse à ceux qui aiment l'ordre, l'efficacité et l'immensité urbaine : étudiants, professionnels en poste, entrepreneurs ou passionnés de culture japonaise. Chaque quartier a son identité : Shibuya et Shinjuku sont trépidants et très jeunes, Nakameguro et Daikanyama plus chics et décontractés, Setagaya plus résidentiel, tandis que des zones comme Asakusa gardent une atmosphère plus traditionnelle.\n\nLe réseau de trains et de métros est remarquable de ponctualité, mais il peut être bondé aux heures de pointe, et le choix d'un logement proche d'une gare facilite beaucoup le quotidien. Les cafés et espaces de coworking sont présents, même si les usages locaux diffèrent de ceux d'autres villes : discrétion et respect des règles sont importants. Les démarches administratives et la location peuvent demander de la préparation et des intermédiaires.\n\nUn Roamer vivant à Tokyo peut vous aider à comprendre les usages, choisir un quartier, aborder la recherche de logement ou l'administration, et éviter les maladresses culturelles. Posez-lui vos questions avant votre arrivée.",
+   "faq": [
+    {
+     "q": "Quel quartier de Tokyo choisir quand on s'installe comme expatrié ?",
+     "a": "Cela dépend de votre travail et de votre style de vie. Shibuya et Shinjuku sont animés, Nakameguro plus agréable, Setagaya plus calme. Regardez surtout le temps de trajet jusqu'à votre lieu de travail et la proximité d'une gare."
+    },
+    {
+     "q": "Est-il difficile de louer un logement à Tokyo en tant qu'étranger ?",
+     "a": "Cela peut demander de la patience : garants, documents et usages locaux peuvent compliquer la démarche. Passer par une agence habituée aux étrangers aide, et un Roamer sur place peut expliquer ce qu'il faut préparer."
+    },
+    {
+     "q": "Faut-il parler japonais pour vivre à Tokyo ?",
+     "a": "L'anglais suffit parfois dans certains milieux professionnels et dans les zones très internationales, mais le japonais devient vite utile pour l'administration, le logement et la vie sociale. Apprendre les bases avant le départ est un vrai atout."
+    }
+   ]
+  },
+  "chiang-mai": {
+   "body": "Chiang Mai est appréciée des nomades digitaux, des freelances et des voyageurs de longue durée qui recherchent une ville à taille humaine, entourée de montagnes et plus calme que Bangkok. Le quartier de Nimman, très fréquenté, concentre cafés, coworkings et restaurants ; la vieille ville, entourée de douves, est charmante et touristique ; Santitham est plus local et résidentiel ; d'autres zones en périphérie offrent plus de verdure et de tranquillité.\n\nLa ville se parcourt facilement en scooter, en taxi collectif ou en application, car les transports en commun restent limités. Les cafés pensés pour le travail et les coworkings sont très nombreux, et la communauté internationale est active. Il faut toutefois tenir compte de la saison des feux agricoles, qui peut dégrader la qualité de l'air à certaines périodes de l'année.\n\nUn Roamer installé à Chiang Mai peut vous aider à choisir le quartier, anticiper la saison, trouver un logement ou comprendre la vie locale. Il vous donnera un avis concret, au-delà des guides généralistes.",
+   "faq": [
+    {
+     "q": "Quel quartier de Chiang Mai choisir quand on est nomade digital ?",
+     "a": "Nimman est le plus pratique pour les cafés et coworkings, la vieille ville pour son charme et ses temples, Santitham pour une vie plus locale et calme. Louez d'abord pour une courte période afin de tester le quartier."
+    },
+    {
+     "q": "Chiang Mai est-elle une bonne ville pour travailler à distance ?",
+     "a": "Oui, c'est l'une des destinations les plus connues des nomades, avec des coworkings, des cafés équipés et une communauté sociable. Vérifiez la connexion de votre logement et prévoyez des alternatives en cas de coupure."
+    },
+    {
+     "q": "Quand faut-il éviter d'aller à Chiang Mai ?",
+     "a": "La qualité de l'air peut se dégrader durant la saison des brûlis, en général en début d'année. Renseignez-vous sur les conditions du moment auprès de sources fiables ou d'un Roamer sur place avant de planifier un long séjour."
+    }
+   ]
+  },
+  "mexico-city": {
+   "body": "Mexico séduit les télétravailleurs, les créatifs, les entrepreneurs et les voyageurs qui aiment les capitales denses, culturelles et gastronomiques. Roma et Condesa sont les quartiers les plus prisés des nomades, avec cafés, parcs et architecture ; Polanco est plus huppé et orienté affaires ; Coyoacán est plus traditionnel et paisible ; d'autres zones sont plus résidentielles et moins touristiques.\n\nLa ville est immense, et la circulation est parfois lourde. Le métro, le Metrobús, les taxis et les applications de transport sont très utilisés, mais le choix du quartier détermine largement votre temps de trajet. Les coworkings sont nombreux dans les secteurs centraux, et beaucoup de cafés conviennent au travail. L'altitude, la pollution ou la sécurité selon les zones sont des sujets à connaître avant de s'installer.\n\nUn Roamer vivant à Mexico peut vous conseiller sur les quartiers à privilégier, les précautions pratiques, le logement ou la vie sociale. Il saura vous donner des repères concrets adaptés à votre profil.",
+   "faq": [
+    {
+     "q": "Quel quartier de Mexico choisir quand on est nomade digital ?",
+     "a": "Roma et Condesa sont les plus populaires pour leurs cafés, leurs parcs et leur communauté internationale. Polanco convient à ceux qui préfèrent un cadre plus aisé. Visitez à différents moments de la journée pour juger l'ambiance."
+    },
+    {
+     "q": "Mexico est-elle une ville sûre pour les expatriés ?",
+     "a": "La sécurité varie beaucoup selon les quartiers et les habitudes. Les zones prisées des expatriés sont en général fréquentées, mais il faut rester prudent la nuit et dans les transports. Un Roamer local peut vous donner des conseils précis et actualisés."
+    },
+    {
+     "q": "L'altitude de Mexico pose-t-elle problème ?",
+     "a": "La ville est située en altitude, et certains voyageurs ressentent fatigue, essoufflement ou troubles du sommeil les premiers jours. Prévoyez un temps d'adaptation, hydratez-vous et demandez conseil à un professionnel de santé si vous avez des fragilités."
+    }
+   ]
+  },
+  "miami": {
+   "body": "Miami attire les entrepreneurs, les professionnels de la finance et de la tech, les créatifs et les expatriés qui recherchent le soleil dans un cadre très international, avec une forte communauté hispanophone. Brickell est le quartier d'affaires avec ses tours résidentielles ; Wynwood est connu pour ses galeries et son art urbain ; Miami Beach est tourné vers la plage et le tourisme ; Coral Gables est plus verdoyant et résidentiel.\n\nLa voiture reste le moyen de déplacement le plus courant, même si certains quartiers, comme Brickell, permettent de se déplacer à pied ou avec des transports locaux. Les distances et la circulation influencent le choix du logement. Les espaces de coworking existent, notamment près des zones d'affaires, et l'ambiance business est très marquée. La saison des ouragans et la chaleur sont aussi à anticiper.\n\nUn Roamer installé à Miami peut vous aider à comprendre les quartiers, la vie pratique, la création d'activité ou les usages locaux. Posez-lui vos questions avant de vous engager.",
+   "faq": [
+    {
+     "q": "Quel quartier de Miami choisir quand on s'installe sans voiture ?",
+     "a": "Brickell et certains secteurs de Miami Beach sont les plus praticables à pied, avec commerces et services proches. Hors de ces zones, la voiture devient vite nécessaire. Vérifiez les trajets réels avant de signer un bail."
+    },
+    {
+     "q": "Miami est-elle une bonne ville pour lancer un business ?",
+     "a": "La ville attire de nombreux entrepreneurs, avec un réseau international actif. Les règles juridiques et fiscales dépendent de votre situation : faites-vous conseiller par un professionnel et demandez à un Roamer comment fonctionne la scène locale."
+    },
+    {
+     "q": "Peut-on vivre à Miami sans parler espagnol ?",
+     "a": "Oui, l'anglais suffit dans la plupart des situations, mais l'espagnol est très répandu et utile au quotidien et dans le travail. Quelques notions facilitent les échanges, surtout dans certains quartiers et milieux professionnels."
+    }
+   ]
+  },
+  "prague": {
+   "body": "Prague séduit les étudiants, les jeunes actifs, les freelances et les expatriés qui aiment les capitales européennes à l'architecture préservée, bien desservies et à l'ambiance agréable. Vinohrady est un quartier résidentiel et très recherché ; Žižkov est plus populaire et animé ; Karlín, reconstruit, attire de nombreuses entreprises et cafés ; Malá Strana et la vieille ville sont magnifiques mais très touristiques ; Smíchov est pratique et en plein essor.\n\nLe réseau de tramways, de métros et de bus est dense et rend la voiture inutile pour la plupart des habitants. La ville compte des coworkings, des cafés adaptés et une communauté internationale visible, notamment dans le secteur tech et les services partagés. Le tchèque reste difficile à apprendre, mais l'anglais est courant dans les milieux professionnels.\n\nUn Roamer vivant à Prague peut vous renseigner sur les quartiers, les démarches de résidence, la recherche d'un logement ou la vie quotidienne. Il vous aidera à vous repérer avant et après votre arrivée.",
+   "faq": [
+    {
+     "q": "Quel quartier de Prague choisir quand on est expatrié ?",
+     "a": "Vinohrady est très apprécié pour son cadre résidentiel et ses commerces, Karlín pour son ambiance moderne, Žižkov pour son côté animé. Évitez le centre historique si vous cherchez un quotidien calme et loin des foules touristiques."
+    },
+    {
+     "q": "Prague est-elle une bonne ville pour travailler à distance ?",
+     "a": "Oui, la ville dispose de coworkings, de cafés agréables et d'une connexion généralement fiable. Elle est bien située en Europe centrale, ce qui facilite les déplacements professionnels. Testez néanmoins le débit de votre logement avant de vous engager."
+    },
+    {
+     "q": "Faut-il parler tchèque pour vivre à Prague ?",
+     "a": "L'anglais suffit dans de nombreux cadres professionnels et touristiques, mais le tchèque devient utile pour l'administration, le logement et l'intégration. Apprendre quelques phrases de base est très apprécié des habitants."
+    }
+   ]
+  }
+ },
+ "categories": {
+  "nomad-life": {
+   "body": "La vie nomade désigne le mode de vie de ceux qui travaillent à distance tout en changeant régulièrement de ville ou de pays. Elle recouvre le choix des destinations, l'organisation du travail, la gestion de l'isolement, la construction d'une communauté et la logistique d'un quotidien en mouvement. Derrière l'image séduisante des plages et des cafés, il y a beaucoup de décisions très pratiques.\n\nLes questions les plus fréquentes portent sur le choix d'une première destination, la durée idéale d'un séjour, la fiabilité de la connexion, l'assurance santé, la façon de se loger pour quelques semaines ou quelques mois, ou encore la gestion du décalage horaire avec ses clients et son équipe. Beaucoup se demandent aussi comment rencontrer du monde et éviter la fatigue du changement permanent.\n\nSur AskARoamer, des personnes qui vivent déjà ce mode de vie répondent à vos questions, partagent leur expérience concrète et peuvent vous aider à préparer votre propre départ. Vous pouvez poser une question écrite ou réserver un appel individuel avec un Roamer qui connaît votre destination.",
+   "faq": [
+    {
+     "q": "Comment devenir nomade digital quand on débute ?",
+     "a": "Commencez par sécuriser un revenu compatible avec le travail à distance, puis testez un séjour court dans une destination facile. Renseignez-vous sur les règles de séjour et d'assurance, et échangez avec des nomades expérimentés pour éviter les erreurs fréquentes."
+    },
+    {
+     "q": "Comment choisir sa première destination de nomade digital ?",
+     "a": "Tenez compte de la fiabilité d'internet, du fuseau horaire par rapport à vos clients, du climat, de la communauté sur place et des règles de séjour. Une ville avec une communauté active facilite souvent le démarrage."
+    },
+    {
+     "q": "Comment éviter la solitude en vivant en nomade ?",
+     "a": "Privilégiez des séjours un peu plus longs, fréquentez des coworkings et des événements locaux, et gardez des rituels réguliers. Échanger avec des Roamers sur place aide aussi à créer des contacts rapidement dans une nouvelle ville."
+    }
+   ]
+  },
+  "relocation": {
+   "body": "L'expatriation et le déménagement à l'étranger regroupent tout ce qui accompagne un changement de pays : choix de la destination, visas, permis de résidence, démarches administratives, logement, banque, assurance, scolarité ou encore adaptation culturelle. Chaque pays a ses propres règles, et ces règles évoluent régulièrement.\n\nLes questions courantes portent sur le type de visa adapté à votre situation, les documents à préparer, l'ordre des démarches à l'arrivée, l'ouverture d'un compte bancaire, la recherche d'un logement à distance ou le transfert de ses affaires. Beaucoup veulent aussi savoir comment éviter les erreurs coûteuses et à qui se fier. Pour tout ce qui touche aux conditions légales, aux durées ou aux montants, il faut toujours vérifier auprès des sources officielles.\n\nLes Roamers sont des personnes qui ont déjà vécu ces démarches sur place. Ils ne remplacent ni un avocat ni une administration, mais ils peuvent partager leur expérience, indiquer les étapes à anticiper et vous aider à poser les bonnes questions avant de vous lancer.",
+   "faq": [
+    {
+     "q": "Par où commencer pour déménager à l'étranger ?",
+     "a": "Définissez d'abord votre projet : travail, études, retraite ou télétravail. Renseignez-vous ensuite sur les conditions d'entrée et de résidence auprès des sources officielles, puis échangez avec quelqu'un qui vit déjà dans le pays pour comprendre la réalité du terrain."
+    },
+    {
+     "q": "Comment savoir de quel visa on a besoin pour s'installer à l'étranger ?",
+     "a": "Cela dépend de votre nationalité, de la durée et de la raison du séjour. Les conditions changent souvent : consultez le site officiel de l'ambassade ou du ministère concerné, et au besoin un professionnel du droit des étrangers."
+    },
+    {
+     "q": "Quelles démarches faut-il faire en arrivant dans un nouveau pays ?",
+     "a": "Selon le pays, il peut s'agir d'enregistrer son adresse, d'obtenir un titre de séjour, d'ouvrir un compte bancaire ou de souscrire une assurance. L'ordre compte beaucoup : un Roamer local peut vous décrire la marche à suivre habituelle."
+    }
+   ]
+  },
+  "travel": {
+   "body": "Préparer un voyage, ce n'est pas seulement réserver un vol et un hébergement. Il s'agit de choisir la bonne saison, de comprendre les usages locaux, de savoir comment se déplacer, de repérer les quartiers où loger et de prévoir les questions pratiques comme les formalités d'entrée, l'assurance, la santé, l'argent ou la connexion. Un bon voyage repose souvent sur quelques informations bien ciblées.\n\nLes voyageurs demandent fréquemment quel quartier choisir, comment organiser un itinéraire réaliste, quoi éviter, quelles sont les erreurs de débutant, comment se déplacer sur place ou quelles activités sortent des sentiers battus. Beaucoup cherchent aussi un avis honnête, loin des brochures, sur ce qui vaut vraiment le détour.\n\nSur AskARoamer, vous pouvez interroger des personnes qui vivent dans la destination ou qui la connaissent bien. Elles vous donnent des conseils concrets, adaptés à votre style de voyage, par écrit ou lors d'un appel individuel. Les formalités d'entrée changeant souvent, vérifiez toujours les conditions auprès des sources officielles avant le départ.",
+   "faq": [
+    {
+     "q": "Comment bien préparer un voyage dans un pays que l'on ne connaît pas ?",
+     "a": "Renseignez-vous sur les formalités d'entrée, la saison, les quartiers où loger et les moyens de transport. Prévoyez une assurance et une solution de connexion, puis posez vos questions précises à un local ou à un Roamer qui connaît la destination."
+    },
+    {
+     "q": "Comment choisir le bon quartier où loger en voyage ?",
+     "a": "Considérez vos priorités : proximité des transports, calme, vie nocturne, sécurité ressentie. Regardez la carte et les avis récents, et demandez à un habitant lequel convient à votre type de séjour plutôt que de vous fier uniquement aux photos."
+    },
+    {
+     "q": "Comment éviter les pièges à touristes ?",
+     "a": "Évitez les restaurants qui racolent, comparez les tarifs de transport avant de monter et renseignez-vous sur les usages locaux. Un conseil d'un habitant vaut souvent mieux qu'un classement en ligne pour trouver des adresses authentiques."
+    }
+   ]
+  },
+  "work-business": {
+   "body": "Ce thème couvre le travail à distance, le freelancing, l'entrepreneuriat et la création d'entreprise depuis l'étranger. Il touche à des questions très concrètes : comment organiser son activité quand on change de pays, comment trouver des clients, comment gérer le décalage horaire, quel statut choisir et comment s'intégrer à l'écosystème local d'une ville.\n\nLes questions habituelles portent sur la possibilité de travailler légalement à distance depuis un pays donné, la fiscalité, l'ouverture d'un compte professionnel, la facturation, le choix d'un coworking, la manière de dénicher des opportunités locales ou de construire un réseau. Ces sujets dépendent fortement de votre situation personnelle et des règles en vigueur, qui évoluent régulièrement : un conseil juridique ou fiscal professionnel reste indispensable pour les décisions importantes.\n\nLes Roamers apportent un éclairage de terrain : ils racontent comment ils travaillent dans leur ville, quels réseaux fréquenter, quels outils ou lieux utiliser, quelles erreurs éviter. Vous pouvez leur poser vos questions par écrit ou réserver un appel individuel pour approfondir.",
+   "faq": [
+    {
+     "q": "Peut-on travailler en télétravail depuis l'étranger légalement ?",
+     "a": "Cela dépend du pays, de votre statut et de votre employeur. Les règles de séjour, de travail et de fiscalité changent souvent : vérifiez-les auprès des autorités officielles et, si besoin, d'un professionnel avant de partir."
+    },
+    {
+     "q": "Comment trouver des clients quand on est freelance à l'étranger ?",
+     "a": "Combinez vos clients existants, les plateformes spécialisées et le réseau local, notamment via les coworkings et les événements. Échanger avec des freelances installés sur place aide à comprendre ce qui fonctionne dans la ville."
+    },
+    {
+     "q": "Faut-il créer une entreprise locale pour lancer son activité à l'étranger ?",
+     "a": "Pas toujours. Selon votre situation, une structure existante peut suffire, ou une entité locale peut être nécessaire. Faites-vous conseiller par un expert juridique et fiscal, puis demandez à un Roamer comment cela se passe concrètement sur place."
+    }
+   ]
+  },
+  "cost-of-living": {
+   "body": "Le coût de la vie recouvre tout ce qui pèse sur votre budget quand vous vivez ou voyagez ailleurs : loyer, nourriture, transport, santé, loisirs, abonnements, coworking. Il varie fortement d'une ville à l'autre, mais aussi d'un quartier ou d'un mode de vie à l'autre. Les montants évoluent régulièrement, ce qui rend les chiffres trouvés en ligne vite périmés.\n\nLes questions les plus fréquentes portent sur le budget réaliste d'un mois, la différence entre vivre comme un local et comme un touriste, les dépenses cachées, les frais bancaires et de change, la manière de trouver un logement abordable ou les postes où l'on peut vraiment économiser. Beaucoup veulent aussi savoir si une ville reste adaptée à leurs revenus.\n\nLes Roamers donnent une vision de terrain : ce qui coûte cher, ce qui est étonnamment abordable, les habitudes locales qui permettent de mieux dépenser. Ils indiquent des ordres de grandeur et des pistes, à vérifier toujours au moment de votre départ. Vous pouvez leur poser vos questions pour affiner votre budget.",
+   "faq": [
+    {
+     "q": "Comment estimer son budget mensuel avant de s'installer dans une nouvelle ville ?",
+     "a": "Listez vos postes principaux : logement, repas, transport, santé, travail, loisirs. Comparez plusieurs sources récentes et demandez à un habitant ce qui est vraiment dépensé. Gardez une marge pour les imprévus et les frais d'installation."
+    },
+    {
+     "q": "Quelles sont les dépenses cachées quand on vit à l'étranger ?",
+     "a": "Frais bancaires et de change, assurance santé, caution du logement, visa, déplacements pour les formalités ou abonnements locaux. Selon la ville, le chauffage ou la climatisation peut aussi peser sur la facture."
+    },
+    {
+     "q": "Comment réduire son loyer à l'étranger sans perdre en confort ?",
+     "a": "Comparez les quartiers un peu éloignés mais bien desservis, négociez les séjours longs et évitez les zones très touristiques. Un habitant peut vous orienter vers les secteurs au meilleur rapport qualité-prix et vous éviter les annonces trompeuses."
+    }
+   ]
+  }
+ }
+}
