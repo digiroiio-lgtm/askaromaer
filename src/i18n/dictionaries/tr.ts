@@ -49,6 +49,9 @@ const tr = {
     showMore: "Daha fazla göster",
     showLess: "Daha az göster",
     seeAll: "Tümünü Gör",
+    otherCities: "Diğer şehirler",
+    relatedTopics: "İlgili konular",
+    popularCities: "Popüler şehirler",
     search: "Ara",
     ago: "önce",
     min: "dk",
@@ -190,6 +193,7 @@ const tr = {
     metaTitle: "Kategoriler — Nomad Life, Relocation, Travel ve daha fazlası | AskARoamer",
     metaDescription: "Dijital göçebelik, taşınma, seyahat, uzaktan çalışma ve yaşam maliyeti kategorilerinde soruları, Roamerları ve rehberleri keşfedin.",
     subtitle: "İlgilendiğin konuyu seç; sorulara, Roamerlara ve rehberlere ulaş.",
+    detailMetaTitle: "{category} — Sorular, Roamer'lar ve rehberler | AskARoamer",
   },
   roamers: {
     titleA: "Roamer",

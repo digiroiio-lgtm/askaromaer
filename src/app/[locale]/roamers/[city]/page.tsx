@@ -2,8 +2,9 @@ import { notFound } from "next/navigation";
 import { resolveLocale } from "@/i18n";
 import { href } from "@/i18n/config";
 import { buildMetadata, breadcrumbLd } from "@/lib/seo";
-import { getCity, getGuides, getQuestions } from "@/lib/queries";
+import { getAllCities, getCity, getGuides, getQuestions } from "@/lib/queries";
 import { fmt, num } from "@/lib/format";
+import Link from "next/link";
 import { PageHero, SearchPill, CtaBand, JsonLd, SectionHeader, Breadcrumbs } from "@/components/ui";
 import { GuideCardH, QuestionRow } from "@/components/cards";
 import { RoamerDirectory } from "@/components/RoamerDirectory";
@@ -28,6 +29,7 @@ export default async function CityRoamersPage({ params, searchParams }: Props) {
   const city = await getCity(locale, slug);
   if (!city) notFound();
   const vars = { city: city.name, cityIn: city.locative, n: num(city.roamerCount, locale) };
+  const others = (await getAllCities(locale)).filter((c) => c.slug !== slug && c.roamerCount > 0).slice(0, 8);
   const [questions, guides] = await Promise.all([getQuestions(locale, { cities: [slug], pageSize: 3, sort: "popular" }), getGuides(locale, { cities: [slug], take: 4 })]);
   return (
     <>
@@ -47,6 +49,12 @@ export default async function CityRoamersPage({ params, searchParams }: Props) {
         <section className="container-x mt-10">
           <SectionHeader title={fmt(t.cities.cityGuides, vars)} link={href(locale, "/guides", { city: slug })} linkLabel={t.common.seeAll} />
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-3.5">{guides.map((g) => <GuideCardH key={g.id} g={g} locale={locale} t={t} />)}</div>
+        </section>
+      )}
+      {others.length > 0 && (
+        <section className="container-x mt-10">
+          <SectionHeader title={t.common.otherCities} link={href(locale, `/cities/${slug}`)} linkLabel={city.name} />
+          <div className="flex flex-wrap gap-2">{others.map((c) => <Link key={c.id} className="chip hover:bg-brand-50" href={href(locale, `/roamers/${c.slug}`)}>{c.name}</Link>)}</div>
         </section>
       )}
       <CtaBand title={t.roamers.bandTitle} text={t.roamers.bandText} cta={t.roamers.bandCta} href={href(locale, "/become-a-roamer")} image="/images/hero/cta-coast.jpg" />

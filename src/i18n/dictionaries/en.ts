@@ -51,6 +51,9 @@ const en: Dictionary = {
     showMore: "Show more",
     showLess: "Show less",
     seeAll: "See all",
+    otherCities: "Other cities",
+    relatedTopics: "Related topics",
+    popularCities: "Popular cities",
     search: "Search",
     ago: "ago",
     min: "min",
@@ -192,6 +195,7 @@ const en: Dictionary = {
     metaTitle: "Categories — Nomad life, relocation, travel and more | AskARoamer",
     metaDescription: "Explore questions, Roamers and guides on digital nomad life, relocation, travel, remote work and cost of living.",
     subtitle: "Pick a topic and jump straight to questions, Roamers and guides.",
+    detailMetaTitle: "{category} — Questions, Roamers and guides | AskARoamer",
   },
   roamers: {
     titleA: "Discover",

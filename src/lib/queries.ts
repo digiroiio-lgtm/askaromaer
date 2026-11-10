@@ -28,6 +28,9 @@ export const getCategories = cache(async (locale: Locale) => {
     return { id: c.id, slug: c.slug, imageUrl: c.imageUrl, name: tr.name, description: tr.description, questionCount: c._count.questions, guideCount: c._count.guides };
   });
 });
+export async function getCategory(locale: Locale, slug: string) {
+  return (await getCategories(locale)).find((c) => c.slug === slug) ?? null;
+}
 export type CategoryView = Awaited<ReturnType<typeof getCategories>>[number];
 
 /* ---------- cities ---------- */

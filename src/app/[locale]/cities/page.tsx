@@ -1,4 +1,3 @@
-import Link from "next/link";
 import { Suspense } from "react";
 import { resolveLocale } from "@/i18n";
 import { href } from "@/i18n/config";
@@ -6,7 +5,7 @@ import { buildMetadata, breadcrumbLd } from "@/lib/seo";
 import { getAllCities, getCategories, getQuestions, getRoamers, siteStats } from "@/lib/queries";
 import { REGIONS } from "@/lib/constants";
 import { fmt, num } from "@/lib/format";
-import { PageHero, SearchPill, StatStrip, CtaBand, JsonLd, SectionHeader, EmptyState } from "@/components/ui";
+import { Breadcrumbs, PageHero, SearchPill, StatStrip, CtaBand, JsonLd, SectionHeader, EmptyState } from "@/components/ui";
 import { CityTile, QuestionRow, RoamerMini } from "@/components/cards";
 import { AutoFilterForm, SortSelect } from "@/components/client";
 import { FilterAside, FilterGroup, arr, one, type SP } from "@/components/filters";
@@ -51,6 +50,7 @@ export default async function CitiesPage({ params, searchParams }: Props) {
       <PageHero title={t.cities.title} subtitle={t.cities.subtitle} image="/images/hero/cities.jpg">
         <SearchPill action={href(locale, "/cities")} placeholder={t.cities.searchPlaceholder} defaultValue={one(sp, "q")} />
       </PageHero>
+      <div className="container-x mt-4"><Breadcrumbs items={[{ name: t.nav.home, href: href(locale) }, { name: t.cities.title }]} /></div>
       <StatStrip items={[
         { icon: "pin", title: `${num(stats.cities, locale)} ${t.stats.cities}`, text: t.stats.citiesText },
         { icon: "users", title: `${num(stats.roamers, locale)} ${t.stats.roamers}`, text: t.stats.roamersText },
@@ -93,7 +93,6 @@ export default async function CitiesPage({ params, searchParams }: Props) {
       </div>
 
       <CtaBand title={t.cities.bandTitle} text={t.cities.bandText} cta={t.cities.bandCta} href={href(locale, "/questions/ask", { category: "relocation" })} image="/images/hero/cta-coast.jpg" />
-      <p className="sr-only"><Link href={href(locale, "/roamers")}>{t.nav.roamers}</Link></p>
     </>
   );
 }

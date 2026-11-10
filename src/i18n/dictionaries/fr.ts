@@ -51,6 +51,9 @@ const fr: Dictionary = {
     showMore: "Voir plus",
     showLess: "Voir moins",
     seeAll: "Tout voir",
+    otherCities: "Autres villes",
+    relatedTopics: "Sujets liés",
+    popularCities: "Villes populaires",
     search: "Rechercher",
     ago: "",
     min: "min",
@@ -192,6 +195,7 @@ const fr: Dictionary = {
     metaTitle: "Catégories — Vie nomade, expatriation, voyage et plus | AskARoamer",
     metaDescription: "Questions, Roamers et guides sur la vie de nomade digital, l’expatriation, le voyage, le télétravail et le coût de la vie.",
     subtitle: "Choisissez un thème et accédez directement aux questions, Roamers et guides.",
+    detailMetaTitle: "{category} — Questions, Roamers et guides | AskARoamer",
   },
   roamers: {
     titleA: "Découvrir les",

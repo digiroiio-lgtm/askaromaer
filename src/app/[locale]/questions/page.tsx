@@ -7,7 +7,7 @@ import { buildMetadata, breadcrumbLd } from "@/lib/seo";
 import { getAllCities, getCategories, getGuides, getQuestions, getRoamers, questionFacets, siteStats } from "@/lib/queries";
 import { num } from "@/lib/format";
 import { Icon } from "@/components/Icon";
-import { Avatar, CtaBand, JsonLd, PageHero, Pagination, SearchPill, StatStrip, Stars, EmptyState } from "@/components/ui";
+import { Avatar, Breadcrumbs, CtaBand, JsonLd, PageHero, Pagination, SearchPill, StatStrip, Stars, EmptyState } from "@/components/ui";
 import { QuestionRow } from "@/components/cards";
 import { AutoFilterForm, SortSelect } from "@/components/client";
 import { FilterAside, FilterGroup, arr, one, pageNum, type SP } from "@/components/filters";
@@ -51,6 +51,7 @@ export default async function QuestionsPage({ params, searchParams }: Props) {
       <PageHero title={<>{t.questions.titleA} <em className="text-brand italic">{t.questions.titleB}</em></>} subtitle={t.questions.subtitle} image="/images/hero/questions.jpg">
         <SearchPill action={href(locale, "/questions")} placeholder={t.questions.searchPlaceholder} button={t.common.search} defaultValue={q} />
       </PageHero>
+      <div className="container-x mt-4"><Breadcrumbs items={[{ name: t.nav.home, href: href(locale) }, { name: t.nav.questions }]} /></div>
       <StatStrip items={[
         { icon: "chatRound", title: num(stats.questions, locale), text: t.questions.stat1 },
         { icon: "users", title: `${num(stats.roamers, locale)} ${t.stats.roamers}`, text: t.questions.stat2 },
