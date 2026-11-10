@@ -5,8 +5,9 @@ import { resolveLocale } from "@/i18n";
 import { href } from "@/i18n/config";
 import { buildMetadata, breadcrumbLd, collectionLd } from "@/lib/seo";
 import { getAllCities, getCategories, getCategory, getGuides, getQuestions, getRoamers } from "@/lib/queries";
+import { MIN_INDEX_ITEMS } from "@/lib/constants";
 import { fmt } from "@/lib/format";
-import { Breadcrumbs, JsonLd, SectionHeader, CtaBand, EmptyState } from "@/components/ui";
+import { Breadcrumbs, HubCta, JsonLd, SectionHeader, CtaBand, EmptyState } from "@/components/ui";
 import { GuideTile, QuestionRow, RoamerCard } from "@/components/cards";
 
 type Props = { params: Promise<{ locale: string; category: string }> };
@@ -18,7 +19,7 @@ export async function generateMetadata({ params }: Props) {
   if (!cat) return {};
   return buildMetadata({
     locale, path: `/categories/${slug}`, title: fmt(t.categories.detailMetaTitle, { category: cat.name }), description: cat.description, image: cat.imageUrl,
-    noindex: cat.questionCount + cat.guideCount === 0,
+    noindex: cat.questionCount + cat.guideCount < MIN_INDEX_ITEMS,
   });
 }
 
@@ -52,6 +53,7 @@ export default async function CategoryPage({ params }: Props) {
         </div>
       </section>
 
+      <HubCta title={cat.name} primary={t.questions.askButton} primaryHref={href(locale, "/questions/ask", { category: slug })} secondary={t.nav.roamers} secondaryHref={href(locale, "/roamers", { expertise: slug })} />
       <section className="container-x mt-10">
         <SectionHeader title={t.nav.questions} link={href(locale, "/questions", { category: slug })} linkLabel={t.common.seeAll} />
         {questions.items.length ? <div className="space-y-3">{questions.items.map((q) => <QuestionRow key={q.id} q={q} locale={locale} t={t} />)}</div> : <EmptyState text={t.questions.noAnswers} cta={t.questions.askButton} href={href(locale, "/questions/ask", { category: slug })} />}

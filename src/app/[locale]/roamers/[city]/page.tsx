@@ -5,7 +5,7 @@ import { buildMetadata, breadcrumbLd } from "@/lib/seo";
 import { getAllCities, getCity, getGuides, getQuestions } from "@/lib/queries";
 import { fmt, num } from "@/lib/format";
 import Link from "next/link";
-import { PageHero, SearchPill, CtaBand, JsonLd, SectionHeader, Breadcrumbs } from "@/components/ui";
+import { PageHero, SearchPill, CtaBand, JsonLd, SectionHeader, Breadcrumbs, HubCta } from "@/components/ui";
 import { GuideCardH, QuestionRow } from "@/components/cards";
 import { RoamerDirectory } from "@/components/RoamerDirectory";
 import type { SP } from "@/components/filters";
@@ -39,6 +39,7 @@ export default async function CityRoamersPage({ params, searchParams }: Props) {
       </PageHero>
       <div className="container-x mt-4"><Breadcrumbs items={[{ name: t.nav.home, href: href(locale) }, { name: t.nav.roamers, href: href(locale, "/roamers") }, { name: city.name }]} /></div>
       <RoamerDirectory locale={locale} t={t} sp={sp} basePath={`/roamers/${slug}`} fixedCity={slug} />
+      <HubCta title={fmt(t.cities.askAbout, vars)} primary={t.questions.askButton} primaryHref={href(locale, "/questions/ask", { city: slug })} />
       {questions.items.length > 0 && (
         <section className="container-x mt-12">
           <SectionHeader title={fmt(t.cities.cityQuestions, vars)} link={href(locale, "/questions", { city: slug })} linkLabel={t.common.seeAll} />

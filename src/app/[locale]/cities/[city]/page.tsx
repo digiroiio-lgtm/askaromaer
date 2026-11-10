@@ -5,9 +5,10 @@ import { resolveLocale } from "@/i18n";
 import { href } from "@/i18n/config";
 import { buildMetadata, breadcrumbLd } from "@/lib/seo";
 import { getAllCities, getCategories, getCity, getGuides, getQuestions, getRoamers } from "@/lib/queries";
+import { MIN_INDEX_ITEMS } from "@/lib/constants";
 import { fmt, num } from "@/lib/format";
 import { Icon } from "@/components/Icon";
-import { Breadcrumbs, JsonLd, SectionHeader, CtaBand, EmptyState } from "@/components/ui";
+import { Breadcrumbs, HubCta, JsonLd, SectionHeader, CtaBand, EmptyState } from "@/components/ui";
 import { GuideTile, QuestionRow, RoamerCard } from "@/components/cards";
 
 type Props = { params: Promise<{ locale: string; city: string }> };
@@ -17,7 +18,7 @@ export async function generateMetadata({ params }: Props) {
   const { city: slug } = await params;
   const city = await getCity(locale, slug);
   if (!city) return {};
-  return buildMetadata({ locale, path: `/cities/${slug}`, title: fmt(t.cities.detailMetaTitle, { city: city.name, cityIn: city.locative }), description: city.intro, image: city.imageUrl, noindex: city.questionCount + city.roamerCount + city.guideCount < 3 });
+  return buildMetadata({ locale, path: `/cities/${slug}`, title: fmt(t.cities.detailMetaTitle, { city: city.name, cityIn: city.locative }), description: city.intro, image: city.imageUrl, noindex: city.questionCount + city.roamerCount + city.guideCount < MIN_INDEX_ITEMS });
 }
 
 export default async function CityPage({ params }: Props) {
@@ -59,6 +60,7 @@ export default async function CityPage({ params }: Props) {
         </div>
       </section>
 
+      <HubCta title={fmt(t.cities.askAbout, vars)} primary={t.questions.askButton} primaryHref={href(locale, "/questions/ask", { city: slug })} secondary={t.cities.exploreRoamers} secondaryHref={href(locale, `/roamers/${slug}`)} />
       <section className="container-x mt-10">
         <SectionHeader title={fmt(t.cities.cityRoamers, vars)} link={href(locale, `/roamers/${slug}`)} linkLabel={t.common.seeAll} />
         {roamers.items.length ? <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">{roamers.items.map((r) => <RoamerCard key={r.id} r={r} locale={locale} t={t} />)}</div> : <EmptyState text={t.roamers.noRoamers} cta={t.roamers.bandCta} href={href(locale, "/become-a-roamer")} />}

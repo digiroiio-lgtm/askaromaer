@@ -1,7 +1,7 @@
 import "server-only";
 import { db } from "./db";
 import { href, hreflangCodes, locales, type Locale } from "@/i18n/config";
-import { SITE_URL } from "./constants";
+import { MIN_INDEX_ITEMS, SITE_URL } from "./constants";
 
 type Entry = { path: string; lastmod?: Date; alternates?: readonly Locale[] };
 
@@ -16,10 +16,10 @@ export async function sitemapEntries(locale: Locale): Promise<Entry[]> {
   ]);
   const out: Entry[] = ["/", "/cities", "/categories", "/roamers", "/questions", "/guides", "/become-a-roamer"].map((path) => ({ path }));
   for (const c of categories) {
-    if (c._count.questions + c._count.guides + c._count.roamers > 0) out.push({ path: `/categories/${c.slug}` });
+    if (c._count.questions + c._count.guides + c._count.roamers >= MIN_INDEX_ITEMS) out.push({ path: `/categories/${c.slug}` });
   }
   for (const c of cities) {
-    if (c._count.questions + c._count.roamers + c._count.guides >= 3) out.push({ path: `/cities/${c.slug}` });
+    if (c._count.questions + c._count.roamers + c._count.guides >= MIN_INDEX_ITEMS) out.push({ path: `/cities/${c.slug}` });
     if (c._count.roamers > 0) out.push({ path: `/roamers/${c.slug}` });
   }
   for (const r of roamers) out.push({ path: `/roamer/${r.slug}`, lastmod: r.updatedAt });
