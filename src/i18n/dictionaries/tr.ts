@@ -189,6 +189,11 @@ const tr = {
     exploreRoamers: "Roamerları Gör",
     askAbout: "{city} hakkında soru sor",
   },
+  cityCategory: {
+    metaTitle: "{cityIn} {category}: sorular, Roamer'lar ve rehberler | AskARoamer",
+    title: "{cityIn} {category}",
+    intro: "{city} için {category} konusunda gerçek deneyimler: sorular, şehirde yaşayan Roamer'lar ve rehberler.",
+  },
   categories: {
     title: "Kategoriler",
     metaTitle: "Kategoriler — Nomad Life, Relocation, Travel ve daha fazlası | AskARoamer",

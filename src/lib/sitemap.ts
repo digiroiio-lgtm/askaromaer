@@ -1,5 +1,6 @@
 import "server-only";
 import { db } from "./db";
+import { getCityCategoryCounts } from "./queries";
 import { href, hreflangCodes, locales, type Locale } from "@/i18n/config";
 import { MIN_INDEX_ITEMS, SITE_URL } from "./constants";
 
@@ -22,6 +23,8 @@ export async function sitemapEntries(locale: Locale): Promise<Entry[]> {
     if (c._count.questions + c._count.roamers + c._count.guides >= MIN_INDEX_ITEMS) out.push({ path: `/cities/${c.slug}` });
     if (c._count.roamers > 0) out.push({ path: `/roamers/${c.slug}` });
   }
+  const counts = await getCityCategoryCounts();
+  for (const [key, n] of counts) if (n >= MIN_INDEX_ITEMS) out.push({ path: `/cities/${key.split(":")[0]}/${key.split(":")[1]}` });
   for (const r of roamers) out.push({ path: `/roamer/${r.slug}`, lastmod: r.updatedAt });
   for (const g of guides) out.push({ path: `/guides/${g.slug}`, lastmod: g.updatedAt });
   for (const q of questions) out.push({ path: `/questions/${q.slug}`, lastmod: q.updatedAt, alternates: [locale] });

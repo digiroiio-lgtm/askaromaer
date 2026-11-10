@@ -191,6 +191,11 @@ const fr: Dictionary = {
     exploreRoamers: "Voir les Roamers",
     askAbout: "Poser une question sur {city}",
   },
+  cityCategory: {
+    metaTitle: "{category} à {city} : questions, Roamers et guides | AskARoamer",
+    title: "{category} à {city}",
+    intro: "Retours d'expérience sur le thème « {category} » à {city} : questions, Roamers sur place et guides.",
+  },
   categories: {
     title: "Catégories",
     metaTitle: "Catégories — Vie nomade, expatriation, voyage et plus | AskARoamer",

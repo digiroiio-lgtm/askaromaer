@@ -4,7 +4,7 @@ import { notFound } from "next/navigation";
 import { resolveLocale } from "@/i18n";
 import { href } from "@/i18n/config";
 import { buildMetadata, breadcrumbLd, collectionLd, faqLd } from "@/lib/seo";
-import { getAllCities, getCategories, getCategory, getGuides, getQuestions, getRoamers } from "@/lib/queries";
+import { getAllCities, getCategories, getCategory, getCityCategoryCounts, getGuides, getQuestions, getRoamers } from "@/lib/queries";
 import { MIN_INDEX_ITEMS } from "@/lib/constants";
 import { fmt } from "@/lib/format";
 import { Breadcrumbs, HubContent, HubCta, JsonLd, SectionHeader, CtaBand, EmptyState } from "@/components/ui";
@@ -28,6 +28,7 @@ export default async function CategoryPage({ params }: Props) {
   const { category: slug } = await params;
   const cat = await getCategory(locale, slug);
   if (!cat) notFound();
+  const counts = await getCityCategoryCounts();
   const [questions, guides, roamers, cities, cats] = await Promise.all([
     getQuestions(locale, { categories: [slug], pageSize: 8, sort: "popular" }),
     getGuides(locale, { categories: [slug], take: 3 }),
@@ -75,7 +76,7 @@ export default async function CategoryPage({ params }: Props) {
       {topCities.length > 0 && (
         <section className="container-x mt-10">
           <SectionHeader title={t.common.popularCities} link={href(locale, "/cities")} linkLabel={t.common.seeAll} />
-          <div className="flex flex-wrap gap-2">{topCities.map((c) => <Link key={c.id} className="chip hover:bg-brand-50" href={href(locale, `/cities/${c.slug}`)}>{c.name}</Link>)}</div>
+          <div className="flex flex-wrap gap-2">{topCities.map((c) => <Link key={c.id} className="chip hover:bg-brand-50" href={(counts.get(`${c.slug}:${slug}`) ?? 0) >= MIN_INDEX_ITEMS ? href(locale, `/cities/${c.slug}/${slug}`) : href(locale, `/cities/${c.slug}`)}>{c.name}</Link>)}</div>
         </section>
       )}
       <section className="container-x mt-10">

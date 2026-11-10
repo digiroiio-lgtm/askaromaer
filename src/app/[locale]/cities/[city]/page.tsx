@@ -4,7 +4,7 @@ import { notFound } from "next/navigation";
 import { resolveLocale } from "@/i18n";
 import { href } from "@/i18n/config";
 import { buildMetadata, breadcrumbLd, faqLd } from "@/lib/seo";
-import { getAllCities, getCategories, getCity, getGuides, getQuestions, getRoamers } from "@/lib/queries";
+import { getAllCities, getCategories, getCity, getCityCategoryCounts, getGuides, getQuestions, getRoamers } from "@/lib/queries";
 import { MIN_INDEX_ITEMS } from "@/lib/constants";
 import { fmt, num } from "@/lib/format";
 import { Icon } from "@/components/Icon";
@@ -26,7 +26,7 @@ export default async function CityPage({ params }: Props) {
   const { city: slug } = await params;
   const city = await getCity(locale, slug);
   if (!city) notFound();
-  const [allCities, cats] = await Promise.all([getAllCities(locale), getCategories(locale)]);
+  const [allCities, cats, counts] = await Promise.all([getAllCities(locale), getCategories(locale), getCityCategoryCounts()]);
   const sameRegion = allCities.filter((c) => c.slug !== slug && c.region === city.region);
   const related = [...sameRegion, ...allCities.filter((c) => c.slug !== slug && c.region !== city.region)].slice(0, 6);
   const [roamers, questions, guides] = await Promise.all([
@@ -79,7 +79,7 @@ export default async function CityPage({ params }: Props) {
       )}
       <section className="container-x mt-10">
         <SectionHeader title={t.common.relatedTopics} />
-        <div className="flex flex-wrap gap-2">{cats.map((c) => <Link key={c.id} className="chip hover:bg-brand-50" href={href(locale, `/categories/${c.slug}`)}>{c.name}</Link>)}</div>
+        <div className="flex flex-wrap gap-2">{cats.map((c) => <Link key={c.id} className="chip hover:bg-brand-50" href={(counts.get(`${slug}:${c.slug}`) ?? 0) >= MIN_INDEX_ITEMS ? href(locale, `/cities/${slug}/${c.slug}`) : href(locale, `/categories/${c.slug}`)}>{c.name}</Link>)}</div>
       </section>
       <section className="container-x mt-8">
         <SectionHeader title={t.common.otherCities} link={href(locale, "/cities")} linkLabel={t.common.seeAll} />

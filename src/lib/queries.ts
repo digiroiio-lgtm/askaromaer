@@ -459,3 +459,25 @@ export const siteStats = cache(async () => {
   ]);
   return { members, roamers, questions, answered, guides, cities, avgRating: rating._avg.rating, ratingCount: rating._count._all };
 });
+
+/** Public item counts per city x category (questions + guides + roamers), keyed "citySlug:categorySlug". */
+export const getCityCategoryCounts = cache(async () => {
+  const [cities, cats, qs, gs, rs] = await Promise.all([
+    db.city.findMany({ select: { id: true, slug: true } }),
+    db.category.findMany({ select: { id: true, slug: true } }),
+    db.question.groupBy({ by: ["cityId", "categoryId"], where: { status: "PUBLISHED" }, _count: { _all: true } }),
+    db.guide.groupBy({ by: ["cityId", "categoryId"], where: { status: "PUBLISHED" }, _count: { _all: true } }),
+    db.roamerProfile.findMany({ where: { status: "APPROVED", user: { suspended: false } }, select: { cityId: true, expertise: { select: { id: true } } } }),
+  ]);
+  const citySlug = new Map(cities.map((c) => [c.id, c.slug]));
+  const catSlug = new Map(cats.map((c) => [c.id, c.slug]));
+  const out = new Map<string, number>();
+  const add = (cityId: string, categoryId: string, n: number) => {
+    const key = `${citySlug.get(cityId)}:${catSlug.get(categoryId)}`;
+    out.set(key, (out.get(key) ?? 0) + n);
+  };
+  for (const r of qs) add(r.cityId, r.categoryId, r._count._all);
+  for (const r of gs) add(r.cityId, r.categoryId, r._count._all);
+  for (const r of rs) for (const e of r.expertise) add(r.cityId, e.id, 1);
+  return out;
+});
