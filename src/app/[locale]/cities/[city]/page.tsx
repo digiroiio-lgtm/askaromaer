@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { LanguageNote } from "@/components/LanguageNote";
 import Image from "next/image";
 import { notFound } from "next/navigation";
 import { resolveLocale } from "@/i18n";
@@ -69,7 +70,8 @@ export default async function CityPage({ params, searchParams }: Props) {
         <SectionHeader title={fmt(t.cities.cityRoamers, vars)} link={href(locale, `/roamers/${slug}`)} linkLabel={t.common.seeAll} />
         {roamers.items.length ? <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">{roamers.items.map((r) => <RoamerCard key={r.id} r={r} locale={locale} t={t} />)}</div> : <EmptyState text={t.roamers.noRoamers} cta={t.roamers.bandCta} href={href(locale, "/become-a-roamer")} />}
       </section>
-      <section className="container-x mt-10">
+      <LanguageNote locale={locale} t={t} items={questions.items} city={slug} className="container-x mt-10" />
+      <section className="container-x mt-6">
         <SectionHeader title={fmt(t.cities.cityQuestions, vars)} link={href(locale, "/questions", { city: slug })} linkLabel={t.common.seeAll} />
         {questions.items.length ? <div className="space-y-3">{questions.items.map((q) => <QuestionRow key={q.id} q={q} locale={locale} t={t} />)}</div> : <EmptyState text={t.questions.noAnswers} cta={t.questions.askButton} href={href(locale, "/questions/ask", { city: slug })} />}
       </section>

@@ -90,7 +90,30 @@ export default async function AdminPage({ params, searchParams }: Props) {
     });
     const cols = t.admin.gapCols.split("|");
     const rows = cities.map((c) => ({ c, name: (c.translations.find((x) => x.locale === locale) ?? c.translations[0]).name })).sort((a, b) => (a.c._count.guides === 0 ? 0 : 1) - (b.c._count.guides === 0 ? 0 : 1) || b.c._count.guideRequests - a.c._count.guideRequests);
+    const langRows = await Promise.all(["tr", "en", "fr"].map(async (l) => {
+      const [questions, answered, guides, roamers] = await Promise.all([
+        db.question.count({ where: { status: "PUBLISHED", locale: l } }),
+        db.question.count({ where: { status: "PUBLISHED", locale: l, answers: { some: { status: "PUBLISHED" } } } }),
+        db.guide.count({ where: { status: "PUBLISHED", locale: l } }),
+        db.roamerProfile.count({ where: { status: "APPROVED", languages: { contains: l } } }),
+      ]);
+      return { l, questions, answered, guides, roamers };
+    }));
+    const langCols = t.admin.langCols.split("|");
     body = (
+      <div className="space-y-6">
+      <div className="card overflow-x-auto">
+        <table className="w-full text-[14px]">
+          <thead><tr className="text-left text-ink-2 border-b border-line">{langCols.map((h) => <th key={h} className="p-3">{h}</th>)}</tr></thead>
+          <tbody>
+            {langRows.map((r) => (
+              <tr key={r.l} className="border-b border-line last:border-0">
+                <td className="p-3 font-semibold">{t.languages[r.l as "tr"]}</td><td className="p-3">{r.questions}</td><td className="p-3">{r.answered}</td><td className="p-3">{r.guides}</td><td className="p-3">{r.roamers}</td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
       <div className="card overflow-x-auto">
         <table className="w-full text-[14px]">
           <thead><tr className="text-left text-ink-2 border-b border-line">{cols.map((h) => <th key={h} className="p-3">{h}</th>)}</tr></thead>
@@ -105,6 +128,7 @@ export default async function AdminPage({ params, searchParams }: Props) {
             ))}
           </tbody>
         </table>
+      </div>
       </div>
     );
   } else if (tab === "moderation") {

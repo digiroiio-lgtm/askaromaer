@@ -22,6 +22,16 @@ export default async function PanelGuidesPage({ params }: Props) {
     where: { id: user.roamer.cityId },
     include: { translations: true, _count: { select: { guides: { where: { status: "PUBLISHED" } }, guideRequests: true } } },
   });
+  const nudgeLang = approved && myCity
+    ? await (async () => {
+        for (const l of ["en", "fr"] as const) {
+          if (!user.roamer.languages.split(",").includes(l)) continue;
+          const n = await db.guide.count({ where: { status: "PUBLISHED", locale: l, cityId: user.roamer.cityId } });
+          if (n === 0) return l;
+        }
+        return null;
+      })()
+    : null;
   const gap = approved && myCity && myCity._count.guides === 0 ? { slug: myCity.slug, name: (myCity.translations.find((x) => x.locale === locale) ?? myCity.translations[0]).name, n: myCity._count.guideRequests } : null;
   return (
     <DashShell nav={<SideNav title={t.panel.title} items={panelNav(locale, t)} active="guides" />}>
@@ -30,6 +40,11 @@ export default async function PanelGuidesPage({ params }: Props) {
         {approved && <Link href={href(locale, "/roamer-dashboard/guides/new")} className="btn btn-primary px-5 py-2.5 text-[14px]">+ {t.panel.newGuide}</Link>}
       </div>
       {!approved && <Notice kind="warn">{t.panel.onlyApproved}</Notice>}
+      {nudgeLang && myCity && (
+        <Notice kind="info">
+          <Link href={href(locale, "/roamer-dashboard/guides/new", { city: myCity.slug, lang: nudgeLang })} className="link-orange font-semibold">{fmt(t.panel.writeGuideLang, { language: t.languages[nudgeLang] })} →</Link>
+        </Notice>
+      )}
       {gap && (
         <Notice kind="info">
           <span>{fmt(t.panel.guideWanted, { city: gap.name, n: gap.n })}</span>{" "}

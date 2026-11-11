@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { LanguageNote } from "@/components/LanguageNote";
 import Image from "next/image";
 import { Suspense } from "react";
 import { resolveLocale } from "@/i18n";
@@ -58,6 +59,7 @@ export default async function QuestionsPage({ params, searchParams }: Props) {
         { icon: "bolt", title: t.questions.stat3Title, text: t.questions.stat3Text },
         { icon: "shield", title: t.questions.stat4Title, text: t.questions.stat4Text },
       ]} />
+      <LanguageNote locale={locale} t={t} items={res.items} city={cities[0]} category={categories[0]} />
       <div className="container-x mt-8 grid lg:grid-cols-[180px_1fr_260px] gap-6">
         <Suspense>
           <AutoFilterForm>

@@ -52,6 +52,8 @@ const en: Dictionary = {
     showLess: "Show less",
     seeAll: "See all",
     faqTitle: "Frequently asked questions",
+    langNote: "Many questions on this page are written in other languages. Ask yours in {language}.",
+    langNoteCta: "Ask in {language}",
     otherCities: "Other cities",
     relatedTopics: "Related topics",
     popularCities: "Popular cities",
@@ -487,6 +489,7 @@ const en: Dictionary = {
     markAllRead: "Mark all as read",
   },
   panel: {
+    writeGuideLang: "Write your guide in {language}",
     guideWanted: "No guide for {city} yet. {n} people are waiting.",
     writeGuideFor: "Write the {city} guide",
     title: "Roamer dashboard",
@@ -558,6 +561,7 @@ const en: Dictionary = {
   },
   admin: {
     gaps: "Guide gaps",
+    langCols: "Language|Questions|Answered|Guides|Roamers",
     gapCols: "City|Guides|Requests|Roamers",
     title: "Admin",
     roamers: "Roamer applications",

@@ -50,6 +50,8 @@ const tr = {
     showLess: "Daha az göster",
     seeAll: "Tümünü Gör",
     faqTitle: "Sık sorulan sorular",
+    langNote: "Bu sayfadaki soruların çoğu başka dillerde yazılmış. Kendi sorunu {language} olarak sor.",
+    langNoteCta: "{language} sor",
     otherCities: "Diğer şehirler",
     relatedTopics: "İlgili konular",
     popularCities: "Popüler şehirler",
@@ -486,6 +488,7 @@ const tr = {
     markAllRead: "Tümünü okundu say",
   },
   panel: {
+    writeGuideLang: "Rehberini {language} dilinde yaz",
     guideWanted: "{city} için henüz rehber yok. {n} kişi bekliyor.",
     writeGuideFor: "{city} rehberini yaz",
     title: "Roamer Paneli",
@@ -557,6 +560,7 @@ const tr = {
   },
   admin: {
     gaps: "Rehber Boşlukları",
+    langCols: "Dil|Soru (yayında)|Cevaplanan|Rehber|Roamer",
     gapCols: "Şehir|Rehber|Talep|Roamerlar",
     title: "Yönetim Paneli",
     roamers: "Roamer Başvuruları",

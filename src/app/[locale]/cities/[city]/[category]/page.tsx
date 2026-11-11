@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { LanguageNote } from "@/components/LanguageNote";
 import Image from "next/image";
 import { notFound } from "next/navigation";
 import { resolveLocale } from "@/i18n";
@@ -60,7 +61,8 @@ export default async function CityCategoryPage({ params, searchParams }: Props) 
 
       <HubCta trackPage="city_category" title={fmt(t.cities.askAbout, vars)} primary={t.questions.askButton} primaryHref={href(locale, "/questions/ask", { city: c, category: k })} secondary={t.cities.exploreRoamers} secondaryHref={href(locale, `/roamers/${c}`)} />
 
-      <section className="container-x mt-10">
+      <LanguageNote locale={locale} t={t} items={questions.items} city={c} category={k} className="container-x mt-10" />
+      <section className="container-x mt-6">
         <SectionHeader title={t.nav.questions} link={href(locale, "/questions", { city: c, category: k })} linkLabel={t.common.seeAll} />
         {questions.items.length ? <div className="space-y-3">{questions.items.map((q) => <QuestionRow key={q.id} q={q} locale={locale} t={t} />)}</div> : <EmptyState text={t.questions.noAnswers} cta={t.questions.askButton} href={href(locale, "/questions/ask", { city: c, category: k })} />}
       </section>

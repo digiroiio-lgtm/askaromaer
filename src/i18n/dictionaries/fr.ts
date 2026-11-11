@@ -52,6 +52,8 @@ const fr: Dictionary = {
     showLess: "Voir moins",
     seeAll: "Tout voir",
     faqTitle: "Questions fréquentes",
+    langNote: "Beaucoup de questions de cette page sont rédigées dans d'autres langues. Posez la vôtre en {language}.",
+    langNoteCta: "Poser en {language}",
     otherCities: "Autres villes",
     relatedTopics: "Sujets liés",
     popularCities: "Villes populaires",
@@ -487,6 +489,7 @@ const fr: Dictionary = {
     markAllRead: "Tout marquer comme lu",
   },
   panel: {
+    writeGuideLang: "Rédigez votre guide en {language}",
     guideWanted: "Pas encore de guide pour {city}. {n} personnes l'attendent.",
     writeGuideFor: "Écrire le guide {city}",
     title: "Espace Roamer",
@@ -558,6 +561,7 @@ const fr: Dictionary = {
   },
   admin: {
     gaps: "Guides manquants",
+    langCols: "Langue|Questions|Répondues|Guides|Roamers",
     gapCols: "Ville|Guides|Demandes|Roamers",
     title: "Administration",
     roamers: "Candidatures Roamer",
