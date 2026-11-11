@@ -392,6 +392,10 @@ const fr: Dictionary = {
     bandCta: "Devenir Roamer",
   },
   guides: {
+    noneYet: "Pas encore de guide pour {city}",
+    noneYetText: "Vous souhaitez un guide sur cette ville ? Dites-le-nous, nous le transmettrons aux Roamers sur place.",
+    requestCta: "Je veux un guide",
+    requested: "Demande reçue. Nous vous préviendrons à la publication d'un guide.",
     title: "Guides",
     metaTitle: "Guides payants — Ville, installation et vie sur place | AskARoamer",
     metaDescription: "Découvrez et achetez des guides pratiques, étape par étape, écrits par des Roamers qui vivent sur place.",
@@ -483,6 +487,8 @@ const fr: Dictionary = {
     markAllRead: "Tout marquer comme lu",
   },
   panel: {
+    guideWanted: "Pas encore de guide pour {city}. {n} personnes l'attendent.",
+    writeGuideFor: "Écrire le guide {city}",
     title: "Espace Roamer",
     overview: "Vue d’ensemble",
     profile: "Profil & services",
@@ -551,6 +557,8 @@ const fr: Dictionary = {
     viewPublic: "Voir le profil public",
   },
   admin: {
+    gaps: "Guides manquants",
+    gapCols: "Ville|Guides|Demandes|Roamers",
     title: "Administration",
     roamers: "Candidatures Roamer",
     guides: "Validation des guides",

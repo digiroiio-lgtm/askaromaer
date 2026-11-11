@@ -392,6 +392,10 @@ const en: Dictionary = {
     bandCta: "Become a Roamer",
   },
   guides: {
+    noneYet: "No guide for {city} yet",
+    noneYetText: "Want a guide for this city? Let us know and we will pass it on to Roamers who live there.",
+    requestCta: "I want a guide",
+    requested: "Request received. We will let you know when a guide is published.",
     title: "Guides",
     metaTitle: "Paid guides — City, relocation and living guides | AskARoamer",
     metaDescription: "Discover and buy practical, step-by-step city, relocation and living guides written by Roamers who live there.",
@@ -483,6 +487,8 @@ const en: Dictionary = {
     markAllRead: "Mark all as read",
   },
   panel: {
+    guideWanted: "No guide for {city} yet. {n} people are waiting.",
+    writeGuideFor: "Write the {city} guide",
     title: "Roamer dashboard",
     overview: "Overview",
     profile: "Profile & services",
@@ -551,6 +557,8 @@ const en: Dictionary = {
     viewPublic: "View public profile",
   },
   admin: {
+    gaps: "Guide gaps",
+    gapCols: "City|Guides|Requests|Roamers",
     title: "Admin",
     roamers: "Roamer applications",
     guides: "Guide approvals",

@@ -390,6 +390,10 @@ const tr = {
     bandCta: "Roamer Ol",
   },
   guides: {
+    noneYet: "{city} için henüz rehber yok",
+    noneYetText: "Bu şehir için bir rehber hazırlanmasını istiyorsan haber ver; şehirde yaşayan Roamerlara iletelim.",
+    requestCta: "Rehber istiyorum",
+    requested: "Talebin alındı. Rehber yayınlanınca haber vereceğiz.",
     title: "Rehberler",
     metaTitle: "Ücretli Rehberler — Şehir, taşınma ve yaşam rehberleri | AskARoamer",
     metaDescription:
@@ -482,6 +486,8 @@ const tr = {
     markAllRead: "Tümünü okundu say",
   },
   panel: {
+    guideWanted: "{city} için henüz rehber yok. {n} kişi bekliyor.",
+    writeGuideFor: "{city} rehberini yaz",
     title: "Roamer Paneli",
     overview: "Genel Bakış",
     profile: "Profil & Hizmetler",
@@ -550,6 +556,8 @@ const tr = {
     viewPublic: "Herkese açık profili gör",
   },
   admin: {
+    gaps: "Rehber Boşlukları",
+    gapCols: "Şehir|Rehber|Talep|Roamerlar",
     title: "Yönetim Paneli",
     roamers: "Roamer Başvuruları",
     guides: "Rehber Onayları",

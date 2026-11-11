@@ -9,9 +9,10 @@ import { MIN_INDEX_ITEMS } from "@/lib/constants";
 import { fmt, num } from "@/lib/format";
 import { Icon } from "@/components/Icon";
 import { Breadcrumbs, HubContent, HubCta, JsonLd, SectionHeader, CtaBand, EmptyState } from "@/components/ui";
+import { GuideGap } from "@/components/GuideGap";
 import { GuideTile, QuestionRow, RoamerCard } from "@/components/cards";
 
-type Props = { params: Promise<{ locale: string; city: string }> };
+type Props = { params: Promise<{ locale: string; city: string }>; searchParams: Promise<{ requested?: string }> };
 
 export async function generateMetadata({ params }: Props) {
   const { locale, t } = await resolveLocale(params);
@@ -21,7 +22,7 @@ export async function generateMetadata({ params }: Props) {
   return buildMetadata({ locale, path: `/cities/${slug}`, title: fmt(t.cities.detailMetaTitle, { city: city.name, cityIn: city.locative }), description: city.intro, image: city.imageUrl, noindex: city.questionCount + city.roamerCount + city.guideCount < MIN_INDEX_ITEMS });
 }
 
-export default async function CityPage({ params }: Props) {
+export default async function CityPage({ params, searchParams }: Props) {
   const { locale, t } = await resolveLocale(params);
   const { city: slug } = await params;
   const city = await getCity(locale, slug);
@@ -61,6 +62,7 @@ export default async function CityPage({ params }: Props) {
         </div>
       </section>
 
+      {city.guideCount === 0 && <GuideGap locale={locale} t={t} citySlug={slug} cityName={city.name} back={href(locale, `/cities/${slug}`)} justRequested={(await searchParams).requested === "1"} />}
       <HubContent title={city.name} body={city.body} faq={city.faq} faqTitle={t.common.faqTitle} />
       <HubCta trackPage="city" title={fmt(t.cities.askAbout, vars)} primary={t.questions.askButton} primaryHref={href(locale, "/questions/ask", { city: slug })} secondary={t.cities.exploreRoamers} secondaryHref={href(locale, `/roamers/${slug}`)} />
       <section className="container-x mt-10">

@@ -1,7 +1,9 @@
 "use server";
 
 import { z } from "zod";
+import { redirect } from "next/navigation";
 import { revalidatePath } from "next/cache";
+import { safeNext } from "@/lib/permissions";
 import { db } from "@/lib/db";
 import { getCurrentUser } from "@/lib/auth";
 import { notify } from "@/lib/notify";
@@ -76,4 +78,21 @@ export async function submitGuideAction(fd: FormData) {
   const admins = await db.userRole.findMany({ where: { role: "ADMIN" } });
   await Promise.all(admins.map((a) => notify(a.userId, "GUIDE_REVIEW", g.title, user.name, href(locale, "/admin", { tab: "guides" }))));
   revalidatePath(`/${locale}/roamer-dashboard/guides`);
+}
+
+/** Visitor asks for a guide on a city that has none (one request per user and city). */
+export async function requestGuideAction(fd: FormData) {
+  const locale = formLocale(fd);
+  const citySlug = String(fd.get("city") ?? "");
+  const back = safeNext(String(fd.get("back") ?? ""), href(locale, `/cities/${citySlug}`));
+  const user = await getCurrentUser();
+  if (!user) redirect(href(locale, "/login", { next: back }));
+  const city = await db.city.findUnique({ where: { slug: citySlug } });
+  if (!city) redirect(back);
+  const exists = await db.guideRequest.findUnique({ where: { userId_cityId: { userId: user.id, cityId: city.id } } });
+  if (!exists) await db.guideRequest.create({ data: { userId: user.id, cityId: city.id } });
+  revalidatePath(back.split("?")[0]);
+  const u = new URL(back, "http://x");
+  if (!exists) u.searchParams.set("requested", "1");
+  redirect(u.pathname + u.search);
 }

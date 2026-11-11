@@ -36,6 +36,7 @@ model User {
   reports       ModerationReport[] @relation("Reporter")
   modActions    ModerationAction[] @relation("ModActor")
   verifications VerificationRecord[] @relation("Reviewer")
+  guideRequests GuideRequest[]
 }
 
 // One account, many capabilities: TRAVELER (default), ROAMER, ADMIN
@@ -73,6 +74,18 @@ model City {
   roamers      RoamerProfile[]
   questions    Question[]
   guides       Guide[]
+  guideRequests GuideRequest[]
+}
+
+model GuideRequest {
+  id        String   @id @default(cuid())
+  userId    String
+  cityId    String
+  createdAt DateTime @default(now())
+  user      User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  city      City     @relation(fields: [cityId], references: [id], onDelete: Cascade)
+
+  @@unique([userId, cityId])
 }
 
 model CityTranslation {

@@ -8,9 +8,10 @@ import { MIN_INDEX_ITEMS } from "@/lib/constants";
 import { getCategories, getCity, getGuides, getQuestions, getRoamers } from "@/lib/queries";
 import { fmt } from "@/lib/format";
 import { Breadcrumbs, HubCta, JsonLd, SectionHeader, CtaBand, EmptyState } from "@/components/ui";
+import { GuideGap } from "@/components/GuideGap";
 import { GuideTile, QuestionRow, RoamerCard } from "@/components/cards";
 
-type Props = { params: Promise<{ locale: string; city: string; category: string }> };
+type Props = { params: Promise<{ locale: string; city: string; category: string }>; searchParams: Promise<{ requested?: string }> };
 
 async function load(locale: Parameters<typeof getCity>[0], citySlug: string, catSlug: string) {
   const [city, cats] = await Promise.all([getCity(locale, citySlug), getCategories(locale)]);
@@ -33,7 +34,7 @@ export async function generateMetadata({ params }: Props) {
   return buildMetadata({ locale, path: `/cities/${c}/${k}`, title: fmt(t.cityCategory.metaTitle, vars), description: fmt(t.cityCategory.intro, vars), image: d.city.imageUrl, noindex: d.total < MIN_INDEX_ITEMS });
 }
 
-export default async function CityCategoryPage({ params }: Props) {
+export default async function CityCategoryPage({ params, searchParams }: Props) {
   const { locale, t } = await resolveLocale(params);
   const { city: c, category: k } = await params;
   const d = await load(locale, c, k);
@@ -75,6 +76,7 @@ export default async function CityCategoryPage({ params }: Props) {
           <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">{guides.map((g) => <GuideTile key={g.id} g={g} locale={locale} t={t} />)}</div>
         </section>
       )}
+      {city.guideCount === 0 && <GuideGap locale={locale} t={t} citySlug={c} cityName={city.name} back={url} justRequested={(await searchParams).requested === "1"} />}
       <section className="container-x mt-10">
         <SectionHeader title={t.common.relatedTopics} />
         <div className="flex flex-wrap gap-2">
