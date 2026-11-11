@@ -5,6 +5,7 @@ import { requireUser } from "@/lib/permissions";
 import { db } from "@/lib/db";
 import { date, fmt, money } from "@/lib/format";
 import { Notice } from "@/components/ui";
+import { TrackOnMount } from "@/components/Analytics";
 import { SubmitButton } from "@/components/client";
 import { cancelCheckoutAction, confirmPaymentAction } from "@/actions/commerce";
 
@@ -22,6 +23,7 @@ export default async function CheckoutPage({ params }: Props) {
   const guide = guideId ? await db.guide.findUnique({ where: { id: guideId } }) : null;
   return (
     <div className="container-x max-w-[620px] py-12">
+      {payment.status === "PENDING" && <TrackOnMount name="begin_checkout" params={{ value: payment.amountCents / 100, currency: payment.currency, item_type: guide ? "guide" : "booking" }} />}
       <h1 className="text-[38px]">{t.account.checkoutTitle}</h1>
       <div className="card p-6 mt-5 space-y-4">
         <h2 className="text-[20px]">{t.account.summary}</h2>

@@ -608,6 +608,13 @@ const tr = {
     goHome: "Ana sayfaya dön",
     selectOne: "En az bir seçim yapın.",
   },
+  consent: {
+    title: "Çerezler.",
+    text: "Siteyi geliştirmek için anonim kullanım istatistikleri topluyoruz. Kabul etmezsen analiz çerezi kullanılmaz.",
+    accept: "Kabul et",
+    reject: "Reddet",
+    settings: "Çerez tercihleri",
+  },
   footer: {
     about: "AskARoamer; yaşam, seyahat, taşınma ve çalışma kararlarında orada yaşayan gerçek insanların deneyimini sana ulaştırır.",
     explore: "Keşfet",

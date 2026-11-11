@@ -56,7 +56,7 @@ export default async function CategoryPage({ params }: Props) {
       </section>
 
       <HubContent title={cat.name} body={cat.body} faq={cat.faq} faqTitle={t.common.faqTitle} />
-      <HubCta title={cat.name} primary={t.questions.askButton} primaryHref={href(locale, "/questions/ask", { category: slug })} secondary={t.nav.roamers} secondaryHref={href(locale, "/roamers", { expertise: slug })} />
+      <HubCta trackPage="category" title={cat.name} primary={t.questions.askButton} primaryHref={href(locale, "/questions/ask", { category: slug })} secondary={t.nav.roamers} secondaryHref={href(locale, "/roamers", { expertise: slug })} />
       <section className="container-x mt-10">
         <SectionHeader title={t.nav.questions} link={href(locale, "/questions", { category: slug })} linkLabel={t.common.seeAll} />
         {questions.items.length ? <div className="space-y-3">{questions.items.map((q) => <QuestionRow key={q.id} q={q} locale={locale} t={t} />)}</div> : <EmptyState text={t.questions.noAnswers} cta={t.questions.askButton} href={href(locale, "/questions/ask", { category: slug })} />}

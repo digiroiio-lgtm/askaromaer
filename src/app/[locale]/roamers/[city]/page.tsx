@@ -39,7 +39,7 @@ export default async function CityRoamersPage({ params, searchParams }: Props) {
       </PageHero>
       <div className="container-x mt-4"><Breadcrumbs items={[{ name: t.nav.home, href: href(locale) }, { name: t.nav.roamers, href: href(locale, "/roamers") }, { name: city.name }]} /></div>
       <RoamerDirectory locale={locale} t={t} sp={sp} basePath={`/roamers/${slug}`} fixedCity={slug} />
-      <HubCta title={fmt(t.cities.askAbout, vars)} primary={t.questions.askButton} primaryHref={href(locale, "/questions/ask", { city: slug })} />
+      <HubCta trackPage="city_roamers" title={fmt(t.cities.askAbout, vars)} primary={t.questions.askButton} primaryHref={href(locale, "/questions/ask", { city: slug })} />
       {questions.items.length > 0 && (
         <section className="container-x mt-12">
           <SectionHeader title={fmt(t.cities.cityQuestions, vars)} link={href(locale, "/questions", { city: slug })} linkLabel={t.common.seeAll} />

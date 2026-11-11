@@ -36,7 +36,7 @@ export async function askQuestionAction(_: FormState, fd: FormData): Promise<For
   const roamers = await db.roamerProfile.findMany({ where: { cityId: city.id, status: "APPROVED" }, select: { userId: true } });
   await Promise.all(roamers.filter((r) => r.userId !== user.id).map((r) => notify(r.userId, "QUESTION_IN_CITY", parsed.data.title, t.questions.yourAnswer, href(locale, `/questions/${slug}`))));
   revalidatePath(`/${locale}/questions`);
-  redirect(href(locale, `/questions/${slug}`));
+  redirect(href(locale, `/questions/${slug}`, { posted: "1" }));
 }
 
 const answerSchema = z.object({ questionId: z.string().min(1), body: str(20, 6000) });

@@ -609,6 +609,13 @@ const en: Dictionary = {
     goHome: "Back to home",
     selectOne: "Select at least one option.",
   },
+  consent: {
+    title: "Cookies.",
+    text: "We collect anonymous usage statistics to improve the site. If you decline, no analytics cookies are used.",
+    accept: "Accept",
+    reject: "Decline",
+    settings: "Cookie settings",
+  },
   footer: {
     about: "AskARoamer brings you the first-hand experience of people who live there, for your decisions about living, travelling, relocating and working.",
     explore: "Explore",

@@ -58,14 +58,14 @@ export async function confirmPaymentAction(fd: FormData) {
     await db.booking.update({ where: { id: payment.bookingId }, data: { status: "CONFIRMED" } });
     if (payee) await notify(payee.userId, "NEW_BOOKING", t.panel.upcoming, user.name, href(locale, "/roamer-dashboard/calendar"));
     revalidatePath(`/${locale}/account/bookings`);
-    redirect(href(locale, "/account/bookings", { paid: "1" }));
+    redirect(href(locale, "/account/bookings", { paid: payment.id }));
   }
   const guideId = payment.providerRef?.startsWith("guide:") ? payment.providerRef.slice(6) : null;
   if (payment.purpose === "GUIDE" && guideId) {
     await db.guidePurchase.upsert({ where: { guideId_userId: { guideId, userId: user.id } }, update: {}, create: { guideId, userId: user.id, paymentId: payment.id } });
     const guide = await db.guide.findUnique({ where: { id: guideId } });
     if (payee && guide) await notify(payee.userId, "GUIDE_SOLD", guide.title, user.name, href(locale, "/roamer-dashboard/earnings"));
-    if (guide) redirect(href(guide.locale as never, `/guides/${guide.slug}/read`));
+    if (guide) redirect(href(guide.locale as never, `/guides/${guide.slug}/read`, { paid: payment.id }));
   }
   redirect(href(locale, "/account"));
 }

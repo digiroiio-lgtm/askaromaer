@@ -203,21 +203,21 @@ export function EmptyState({ text, cta, href }: { text: string; cta?: string; hr
 }
 
 /** Lead CTA: inline card + sticky bottom bar on mobile. */
-export function HubCta({ title, primary, primaryHref, secondary, secondaryHref, sticky = true, className = "container-x mt-10" }: { title: string; primary: string; primaryHref: string; secondary?: string; secondaryHref?: string; sticky?: boolean; className?: string }) {
+export function HubCta({ title, primary, primaryHref, secondary, secondaryHref, sticky = true, className = "container-x mt-10", trackPage }: { title: string; primary: string; primaryHref: string; secondary?: string; secondaryHref?: string; sticky?: boolean; className?: string; trackPage?: string }) {
   return (
     <>
       <section className={className}>
         <div className="card p-6 flex flex-col md:flex-row md:items-center gap-4 justify-between">
           <h2 className="text-[24px] md:text-[28px] leading-tight">{title}</h2>
           <div className="flex flex-wrap gap-3">
-            <Link href={primaryHref} className="btn btn-primary px-6 py-3">{primary} <Icon name="arrowRight" size={18} /></Link>
-            {secondary && secondaryHref && <Link href={secondaryHref} className="btn px-6 py-3 border border-line">{secondary}</Link>}
+            <Link href={primaryHref} data-track="hub_ask" data-track-page={trackPage} className="btn btn-primary px-6 py-3">{primary} <Icon name="arrowRight" size={18} /></Link>
+            {secondary && secondaryHref && <Link href={secondaryHref} data-track="hub_roamers" data-track-page={trackPage} className="btn px-6 py-3 border border-line">{secondary}</Link>}
           </div>
         </div>
       </section>
       {sticky && <div className="md:hidden h-16" aria-hidden />}
       {sticky && <div className="md:hidden fixed bottom-0 inset-x-0 z-40 bg-white/95 backdrop-blur border-t border-line p-3">
-        <Link href={primaryHref} className="btn btn-primary w-full py-3">{primary} <Icon name="arrowRight" size={18} /></Link>
+        <Link href={primaryHref} data-track="hub_ask_sticky" data-track-page={trackPage} className="btn btn-primary w-full py-3">{primary} <Icon name="arrowRight" size={18} /></Link>
       </div>}
     </>
   );

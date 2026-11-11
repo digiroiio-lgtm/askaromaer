@@ -62,7 +62,7 @@ export default async function CityPage({ params }: Props) {
       </section>
 
       <HubContent title={city.name} body={city.body} faq={city.faq} faqTitle={t.common.faqTitle} />
-      <HubCta title={fmt(t.cities.askAbout, vars)} primary={t.questions.askButton} primaryHref={href(locale, "/questions/ask", { city: slug })} secondary={t.cities.exploreRoamers} secondaryHref={href(locale, `/roamers/${slug}`)} />
+      <HubCta trackPage="city" title={fmt(t.cities.askAbout, vars)} primary={t.questions.askButton} primaryHref={href(locale, "/questions/ask", { city: slug })} secondary={t.cities.exploreRoamers} secondaryHref={href(locale, `/roamers/${slug}`)} />
       <section className="container-x mt-10">
         <SectionHeader title={fmt(t.cities.cityRoamers, vars)} link={href(locale, `/roamers/${slug}`)} linkLabel={t.common.seeAll} />
         {roamers.items.length ? <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">{roamers.items.map((r) => <RoamerCard key={r.id} r={r} locale={locale} t={t} />)}</div> : <EmptyState text={t.roamers.noRoamers} cta={t.roamers.bandCta} href={href(locale, "/become-a-roamer")} />}

@@ -8,8 +8,10 @@ import { requireUser } from "@/lib/permissions";
 import { canReadGuide } from "@/lib/entitlements";
 import { db } from "@/lib/db";
 import { date, fmt } from "@/lib/format";
+import { TrackOnMount } from "@/components/Analytics";
+import { purchaseParams } from "@/lib/purchase-event";
 
-type Props = { params: Promise<{ locale: string; slug: string }> };
+type Props = { params: Promise<{ locale: string; slug: string }>; searchParams: Promise<{ paid?: string }> };
 
 export async function generateMetadata({ params }: Props) {
   const { locale, t } = await resolveLocale(params);
@@ -18,7 +20,7 @@ export async function generateMetadata({ params }: Props) {
   return privateMetadata(g ? fmt(t.guides.readTitle, { title: g.title }) : "AskARoamer");
 }
 
-export default async function ReadGuidePage({ params }: Props) {
+export default async function ReadGuidePage({ params, searchParams }: Props) {
   const { locale, t } = await resolveLocale(params);
   const { slug } = await params;
   const user = await requireUser(locale);
@@ -26,9 +28,11 @@ export default async function ReadGuidePage({ params }: Props) {
   if (!g) notFound();
   // Entitlement check happens on the server before any paid content is loaded
   if (!(await canReadGuide(user, g))) redirect(href(locale, `/guides/${slug}`));
+  const pp = await purchaseParams((await searchParams).paid, user.id);
   const chapters = await db.guideChapter.findMany({ where: { guideId: g.id }, orderBy: { position: "asc" } });
   return (
     <div className="container-x max-w-[820px] py-8">
+      {pp && <TrackOnMount name="purchase" params={pp} stripParam="paid" />}
       <Link href={href(locale, `/guides/${slug}`)} className="link-orange text-[14px]">← {t.guides.backToGuide}</Link>
       <h1 className="text-[36px] md:text-[46px] leading-tight mt-4">{g.title}</h1>
       <p className="text-[13px] text-ink-2 mt-2">{t.common.by} {g.authorName} · {t.common.lastUpdated}: {date(g.updatedAt, locale)}</p>

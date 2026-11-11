@@ -57,7 +57,7 @@ export default async function CityCategoryPage({ params }: Props) {
         </div>
       </section>
 
-      <HubCta title={fmt(t.cities.askAbout, vars)} primary={t.questions.askButton} primaryHref={href(locale, "/questions/ask", { city: c, category: k })} secondary={t.cities.exploreRoamers} secondaryHref={href(locale, `/roamers/${c}`)} />
+      <HubCta trackPage="city_category" title={fmt(t.cities.askAbout, vars)} primary={t.questions.askButton} primaryHref={href(locale, "/questions/ask", { city: c, category: k })} secondary={t.cities.exploreRoamers} secondaryHref={href(locale, `/roamers/${c}`)} />
 
       <section className="container-x mt-10">
         <SectionHeader title={t.nav.questions} link={href(locale, "/questions", { city: c, category: k })} linkLabel={t.common.seeAll} />

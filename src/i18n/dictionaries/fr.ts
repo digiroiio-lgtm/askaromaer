@@ -609,6 +609,13 @@ const fr: Dictionary = {
     goHome: "Retour à l’accueil",
     selectOne: "Sélectionnez au moins une option.",
   },
+  consent: {
+    title: "Cookies.",
+    text: "Nous collectons des statistiques d'usage anonymes pour améliorer le site. Si vous refusez, aucun cookie d'analyse n'est utilisé.",
+    accept: "Accepter",
+    reject: "Refuser",
+    settings: "Préférences cookies",
+  },
   footer: {
     about: "AskARoamer vous apporte l’expérience de celles et ceux qui vivent sur place pour vos décisions de vie, de voyage, d’installation et de travail.",
     explore: "Explorer",

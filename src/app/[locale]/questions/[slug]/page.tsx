@@ -8,13 +8,14 @@ import { getCurrentUser } from "@/lib/auth";
 import { can } from "@/lib/permissions";
 import { date, fmt, excerpt, timeAgo } from "@/lib/format";
 import { Icon, VerifiedBadge } from "@/components/Icon";
+import { TrackOnMount } from "@/components/Analytics";
 import { Avatar, Breadcrumbs, HubCta, JsonLd, Notice } from "@/components/ui";
 import { QuestionRow } from "@/components/cards";
 import { ActionForm, Textarea, Input } from "@/components/forms";
 import { SubmitButton } from "@/components/client";
 import { answerQuestionAction, reportAction } from "@/actions/questions";
 
-type Props = { params: Promise<{ locale: string; slug: string }> };
+type Props = { params: Promise<{ locale: string; slug: string }>; searchParams: Promise<{ posted?: string }> };
 
 export async function generateMetadata({ params }: Props) {
   const { locale } = await resolveLocale(params);
@@ -26,7 +27,7 @@ export async function generateMetadata({ params }: Props) {
   return buildMetadata({ locale: qLocale, path: `/questions/${slug}`, title: `${q.title} | AskARoamer`, description: excerpt(q.answers[0]?.body ?? q.body, 155), image: q.cityImage, alternateLocales: [qLocale], noindex: q.answers.length === 0 || q.status !== "PUBLISHED", type: "article" });
 }
 
-export default async function QuestionPage({ params }: Props) {
+export default async function QuestionPage({ params, searchParams }: Props) {
   const { locale, t } = await resolveLocale(params);
   const { slug } = await params;
   const [q, user] = await Promise.all([getQuestionBySlug(locale, slug), getCurrentUser()]);
@@ -73,6 +74,7 @@ export default async function QuestionPage({ params }: Props) {
   return (
     <>
       <JsonLd data={[breadcrumbLd([{ name: t.nav.home, url: href(locale) }, { name: t.nav.questions, url: href(locale, "/questions") }, { name: q.cityName, url: href(locale, "/questions", { city: q.citySlug }) }, { name: q.title, url }]), ...(qaLd ? [qaLd] : [])]} />
+      {(await searchParams).posted === "1" && user && q.author.id === user.id && <TrackOnMount name="generate_lead" params={{ lead_type: "question", city: q.citySlug, category: q.categorySlug }} stripParam="posted" />}
       <div className="container-x pt-4 max-w-[900px]">
         <Breadcrumbs items={[{ name: t.nav.home, href: href(locale) }, { name: t.nav.questions, href: href(locale, "/questions") }, { name: q.cityName, href: href(locale, "/questions", { city: q.citySlug }) }, { name: excerpt(q.title, 50) }]} />
         {q.status !== "PUBLISHED" && <div className="mt-3"><Notice kind="warn">{t.statuses.HIDDEN}</Notice></div>}
@@ -142,7 +144,7 @@ export default async function QuestionPage({ params }: Props) {
           )}
         </section>
 
-        <HubCta className="mt-8" sticky={false} title={fmt(t.cities.askAbout, { city: q.cityName, cityIn: q.cityLocative })} primary={t.questions.askButton} primaryHref={href(locale, "/questions/ask", { city: q.citySlug, category: q.categorySlug })} secondary={t.cities.exploreRoamers} secondaryHref={href(locale, `/roamers/${q.citySlug}`)} />
+        <HubCta trackPage="question" className="mt-8" sticky={false} title={fmt(t.cities.askAbout, { city: q.cityName, cityIn: q.cityLocative })} primary={t.questions.askButton} primaryHref={href(locale, "/questions/ask", { city: q.citySlug, category: q.categorySlug })} secondary={t.cities.exploreRoamers} secondaryHref={href(locale, `/roamers/${q.citySlug}`)} />
 
         {related.length > 0 && (
           <section className="mt-10">
