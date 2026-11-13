@@ -13,6 +13,16 @@ export function pickTr<T extends { locale: string }>(entity: WithTr<T>, locale: 
 
 const now = () => new Date();
 
+export type Faq = { q: string; a: string };
+export function parseFaq(raw: string | null | undefined): Faq[] {
+  try {
+    const v = JSON.parse(raw ?? "[]");
+    return Array.isArray(v) ? v.filter((x) => x && typeof x.q === "string" && typeof x.a === "string") : [];
+  } catch {
+    return [];
+  }
+}
+
 /* ---------- categories ---------- */
 
 export const getCategories = cache(async (locale: Locale) => {
@@ -25,9 +35,12 @@ export const getCategories = cache(async (locale: Locale) => {
   });
   return cats.map((c) => {
     const tr = pickTr(c, locale);
-    return { id: c.id, slug: c.slug, imageUrl: c.imageUrl, name: tr.name, description: tr.description, questionCount: c._count.questions, guideCount: c._count.guides };
+    return { id: c.id, slug: c.slug, imageUrl: c.imageUrl, name: tr.name, description: tr.description, body: tr.body, faq: parseFaq(tr.faq), questionCount: c._count.questions, guideCount: c._count.guides };
   });
 });
+export async function getCategory(locale: Locale, slug: string) {
+  return (await getCategories(locale)).find((c) => c.slug === slug) ?? null;
+}
 export type CategoryView = Awaited<ReturnType<typeof getCategories>>[number];
 
 /* ---------- cities ---------- */
@@ -68,6 +81,8 @@ export const getAllCities = cache(async (locale: Locale) => {
       locative: tr.locative,
       country: tr.country,
       intro: tr.intro,
+      body: tr.body,
+      faq: parseFaq(tr.faq),
       questionCount: c._count.questions,
       roamerCount: c._count.roamers,
       guideCount: c._count.guides,
@@ -443,4 +458,26 @@ export const siteStats = cache(async () => {
     db.review.aggregate({ where: { status: "PUBLISHED", roamerId: { not: null } }, _avg: { rating: true }, _count: { _all: true } }),
   ]);
   return { members, roamers, questions, answered, guides, cities, avgRating: rating._avg.rating, ratingCount: rating._count._all };
+});
+
+/** Public item counts per city x category (questions + guides + roamers), keyed "citySlug:categorySlug". */
+export const getCityCategoryCounts = cache(async () => {
+  const [cities, cats, qs, gs, rs] = await Promise.all([
+    db.city.findMany({ select: { id: true, slug: true } }),
+    db.category.findMany({ select: { id: true, slug: true } }),
+    db.question.groupBy({ by: ["cityId", "categoryId"], where: { status: "PUBLISHED" }, _count: { _all: true } }),
+    db.guide.groupBy({ by: ["cityId", "categoryId"], where: { status: "PUBLISHED" }, _count: { _all: true } }),
+    db.roamerProfile.findMany({ where: { status: "APPROVED", user: { suspended: false } }, select: { cityId: true, expertise: { select: { id: true } } } }),
+  ]);
+  const citySlug = new Map(cities.map((c) => [c.id, c.slug]));
+  const catSlug = new Map(cats.map((c) => [c.id, c.slug]));
+  const out = new Map<string, number>();
+  const add = (cityId: string, categoryId: string, n: number) => {
+    const key = `${citySlug.get(cityId)}:${catSlug.get(categoryId)}`;
+    out.set(key, (out.get(key) ?? 0) + n);
+  };
+  for (const r of qs) add(r.cityId, r.categoryId, r._count._all);
+  for (const r of gs) add(r.cityId, r.categoryId, r._count._all);
+  for (const r of rs) for (const e of r.expertise) add(r.cityId, e.id, 1);
+  return out;
 });

@@ -5,8 +5,15 @@
  */
 import { PrismaClient } from "@prisma/client";
 import bcrypt from "bcryptjs";
+import { readFileSync } from "node:fs";
+import { join } from "node:path";
 
 const db = new PrismaClient();
+type HubEntry = { body: string; faq: { q: string; a: string }[] };
+type HubContent = { cities: Record<string, HubEntry>; categories: Record<string, HubEntry> };
+const hubContent = Object.fromEntries(
+  (["tr", "en", "fr"] as const).map((l) => [l, JSON.parse(readFileSync(join(__dirname, "hub-content", `${l}.json`), "utf8")) as HubContent]),
+) as Record<"tr" | "en" | "fr", HubContent>;
 const BASE_ONLY = process.env.SEED_MODE === "base";
 
 type L = "tr" | "en" | "fr";
@@ -64,13 +71,18 @@ const cities: CitySeed[] = [
     fr: { name: "Prague", country: "Tchéquie", loc: "Prague", intro: "Centre historique, position au cœur de l’Europe et coûts raisonnables : Prague est un choix équilibré pour étudiants, freelances et familles." } } },
 ];
 
+function hub(l: L, kind: "cities" | "categories", slug: string) {
+  const e = hubContent[l][kind][slug];
+  return e ? { body: e.body, faq: JSON.stringify(e.faq) } : {};
+}
+
 async function main() {
   console.log("Seeding base data (cities, categories, settings)…");
   for (const [i, c] of categories.entries()) {
     const cat = await db.category.upsert({ where: { slug: c.slug }, update: { imageUrl: c.image, sortOrder: i }, create: { slug: c.slug, imageUrl: c.image, sortOrder: i } });
     for (const l of ["tr", "en", "fr"] as L[]) {
       const [name, description] = c.tr[l];
-      await db.categoryTranslation.upsert({ where: { categoryId_locale: { categoryId: cat.id, locale: l } }, update: { name, description }, create: { categoryId: cat.id, locale: l, name, description } });
+      await db.categoryTranslation.upsert({ where: { categoryId_locale: { categoryId: cat.id, locale: l } }, update: { name, description, ...hub(l, "categories", c.slug) }, create: { categoryId: cat.id, locale: l, name, description, ...hub(l, "categories", c.slug) } });
     }
   }
   for (const [i, c] of cities.entries()) {
@@ -83,8 +95,8 @@ async function main() {
       const t = c.tr[l];
       await db.cityTranslation.upsert({
         where: { cityId_locale: { cityId: city.id, locale: l } },
-        update: { name: t.name, country: t.country, locative: t.loc, intro: t.intro },
-        create: { cityId: city.id, locale: l, name: t.name, country: t.country, locative: t.loc, intro: t.intro },
+        update: { name: t.name, country: t.country, locative: t.loc, intro: t.intro, ...hub(l, "cities", c.slug) },
+        create: { cityId: city.id, locale: l, name: t.name, country: t.country, locative: t.loc, intro: t.intro, ...hub(l, "cities", c.slug) },
       });
     }
   }

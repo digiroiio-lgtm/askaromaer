@@ -49,6 +49,12 @@ const tr = {
     showMore: "Daha fazla göster",
     showLess: "Daha az göster",
     seeAll: "Tümünü Gör",
+    faqTitle: "Sık sorulan sorular",
+    langNote: "Bu sayfadaki soruların çoğu başka dillerde yazılmış. Kendi sorunu {language} olarak sor.",
+    langNoteCta: "{language} sor",
+    otherCities: "Diğer şehirler",
+    relatedTopics: "İlgili konular",
+    popularCities: "Popüler şehirler",
     search: "Ara",
     ago: "önce",
     min: "dk",
@@ -185,11 +191,17 @@ const tr = {
     exploreRoamers: "Roamerları Gör",
     askAbout: "{city} hakkında soru sor",
   },
+  cityCategory: {
+    metaTitle: "{cityIn} {category}: sorular, Roamer'lar ve rehberler | AskARoamer",
+    title: "{cityIn} {category}",
+    intro: "{city} için {category} konusunda gerçek deneyimler: sorular, şehirde yaşayan Roamer'lar ve rehberler.",
+  },
   categories: {
     title: "Kategoriler",
     metaTitle: "Kategoriler — Nomad Life, Relocation, Travel ve daha fazlası | AskARoamer",
     metaDescription: "Dijital göçebelik, taşınma, seyahat, uzaktan çalışma ve yaşam maliyeti kategorilerinde soruları, Roamerları ve rehberleri keşfedin.",
     subtitle: "İlgilendiğin konuyu seç; sorulara, Roamerlara ve rehberlere ulaş.",
+    detailMetaTitle: "{category} — Sorular, Roamer'lar ve rehberler | AskARoamer",
   },
   roamers: {
     titleA: "Roamer",
@@ -380,6 +392,10 @@ const tr = {
     bandCta: "Roamer Ol",
   },
   guides: {
+    noneYet: "{city} için henüz rehber yok",
+    noneYetText: "Bu şehir için bir rehber hazırlanmasını istiyorsan haber ver; şehirde yaşayan Roamerlara iletelim.",
+    requestCta: "Rehber istiyorum",
+    requested: "Talebin alındı. Rehber yayınlanınca haber vereceğiz.",
     title: "Rehberler",
     metaTitle: "Ücretli Rehberler — Şehir, taşınma ve yaşam rehberleri | AskARoamer",
     metaDescription:
@@ -472,6 +488,9 @@ const tr = {
     markAllRead: "Tümünü okundu say",
   },
   panel: {
+    writeGuideLang: "Rehberini {language} dilinde yaz",
+    guideWanted: "{city} için henüz rehber yok. {n} kişi bekliyor.",
+    writeGuideFor: "{city} rehberini yaz",
     title: "Roamer Paneli",
     overview: "Genel Bakış",
     profile: "Profil & Hizmetler",
@@ -540,6 +559,9 @@ const tr = {
     viewPublic: "Herkese açık profili gör",
   },
   admin: {
+    gaps: "Rehber Boşlukları",
+    langCols: "Dil|Soru (yayında)|Cevaplanan|Rehber|Roamer",
+    gapCols: "Şehir|Rehber|Talep|Roamerlar",
     title: "Yönetim Paneli",
     roamers: "Roamer Başvuruları",
     guides: "Rehber Onayları",
@@ -597,6 +619,13 @@ const tr = {
     notFoundText: "Aradığın sayfa taşınmış veya hiç var olmamış olabilir.",
     goHome: "Ana sayfaya dön",
     selectOne: "En az bir seçim yapın.",
+  },
+  consent: {
+    title: "Çerezler.",
+    text: "Siteyi geliştirmek için anonim kullanım istatistikleri topluyoruz. Kabul etmezsen analiz çerezi kullanılmaz.",
+    accept: "Kabul et",
+    reject: "Reddet",
+    settings: "Çerez tercihleri",
   },
   footer: {
     about: "AskARoamer; yaşam, seyahat, taşınma ve çalışma kararlarında orada yaşayan gerçek insanların deneyimini sana ulaştırır.",

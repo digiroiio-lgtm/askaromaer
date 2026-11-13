@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { TrackOnMount } from "@/components/Analytics";
 import { resolveLocale } from "@/i18n";
 import { href } from "@/i18n/config";
 import { privateMetadata } from "@/lib/seo";
@@ -30,6 +31,7 @@ export default async function PanelPage({ params, searchParams }: Props) {
         <h1 className="text-[36px]">{t.panel.title}</h1>
         <Link href={href(locale, `/roamer/${r.slug}`)} className="link-orange text-[14px]">{t.panel.viewPublic} →</Link>
       </div>
+      {(await searchParams).applied && <TrackOnMount name="generate_lead" params={{ lead_type: "roamer_application" }} stripParam="applied" />}
       {(await searchParams).applied && <Notice kind="success">{t.become.success}</Notice>}
       <Notice kind={r.status === "APPROVED" ? "success" : r.status === "PENDING" ? "warn" : "error"}><StatusPill status={r.status} label={t.statuses[r.status as keyof typeof t.statuses]} /> <span className="ml-2">{statusText}</span></Notice>
       <div className="grid sm:grid-cols-2 xl:grid-cols-4 gap-4">

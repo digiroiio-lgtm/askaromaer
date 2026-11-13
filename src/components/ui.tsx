@@ -201,3 +201,53 @@ export function EmptyState({ text, cta, href }: { text: string; cta?: string; hr
     </div>
   );
 }
+
+/** Lead CTA: inline card + sticky bottom bar on mobile. */
+export function HubCta({ title, primary, primaryHref, secondary, secondaryHref, sticky = true, className = "container-x mt-10", trackPage }: { title: string; primary: string; primaryHref: string; secondary?: string; secondaryHref?: string; sticky?: boolean; className?: string; trackPage?: string }) {
+  return (
+    <>
+      <section className={className}>
+        <div className="card p-6 flex flex-col md:flex-row md:items-center gap-4 justify-between">
+          <h2 className="text-[24px] md:text-[28px] leading-tight">{title}</h2>
+          <div className="flex flex-wrap gap-3">
+            <Link href={primaryHref} data-track="hub_ask" data-track-page={trackPage} className="btn btn-primary px-6 py-3">{primary} <Icon name="arrowRight" size={18} /></Link>
+            {secondary && secondaryHref && <Link href={secondaryHref} data-track="hub_roamers" data-track-page={trackPage} className="btn px-6 py-3 border border-line">{secondary}</Link>}
+          </div>
+        </div>
+      </section>
+      {sticky && <div className="md:hidden h-16" aria-hidden />}
+      {sticky && <div className="md:hidden fixed bottom-0 inset-x-0 z-40 bg-white/95 backdrop-blur border-t border-line p-3">
+        <Link href={primaryHref} data-track="hub_ask_sticky" data-track-page={trackPage} className="btn btn-primary w-full py-3">{primary} <Icon name="arrowRight" size={18} /></Link>
+      </div>}
+    </>
+  );
+}
+
+/** Long-form hub text + FAQ accordion (native <details>, content stays in HTML for crawlers). */
+export function HubContent({ title, body, faq, faqTitle }: { title: string; body: string; faq: { q: string; a: string }[]; faqTitle: string }) {
+  const paras = body.split(/\n{2,}/).map((p) => p.trim()).filter(Boolean);
+  if (!paras.length && !faq.length) return null;
+  return (
+    <section className="container-x mt-10 grid lg:grid-cols-[1.2fr_1fr] gap-8">
+      {paras.length > 0 && (
+        <div>
+          <h2 className="text-[26px] md:text-[30px] leading-tight">{title}</h2>
+          <div className="mt-3 space-y-3 text-[16px] leading-relaxed text-ink-2">{paras.map((p, i) => <p key={i}>{p}</p>)}</div>
+        </div>
+      )}
+      {faq.length > 0 && (
+        <div>
+          <h2 className="text-[26px] md:text-[30px] leading-tight">{faqTitle}</h2>
+          <div className="mt-3 space-y-2">
+            {faq.map((f, i) => (
+              <details key={i} className="card px-4 py-3 group">
+                <summary className="cursor-pointer font-semibold text-[15px]">{f.q}</summary>
+                <p className="mt-2 text-[14px] leading-relaxed text-ink-2">{f.a}</p>
+              </details>
+            ))}
+          </div>
+        </div>
+      )}
+    </section>
+  );
+}

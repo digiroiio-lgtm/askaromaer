@@ -9,6 +9,8 @@ export const SPOKEN_LANGUAGES = ["tr", "en", "es", "pt", "de", "fr", "th", "ja",
 export const REGIONS = ["asia", "europe", "north-america", "south-america", "middle-east", "oceania"] as const;
 
 export const SITE_URL = (process.env.NEXT_PUBLIC_SITE_URL ?? "https://askaroamer.com").replace(/\/$/, "");
+/** Hub pages with fewer public items than this stay noindex and out of the sitemap */
+export const MIN_INDEX_ITEMS = 3;
 export const SITE_INDEXABLE = process.env.SITE_INDEXABLE === "true";
 export const PAGE_SIZE = 9;
 

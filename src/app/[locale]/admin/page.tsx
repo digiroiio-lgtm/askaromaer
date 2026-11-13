@@ -28,7 +28,7 @@ export default async function AdminPage({ params, searchParams }: Props) {
   const { locale, t } = await resolveLocale(params);
   const me = await requireAdmin(locale);
   const tab = one(await searchParams, "tab") || "roamers";
-  const tabs = ["roamers", "guides", "moderation", "users", "payments", "settings"] as const;
+  const tabs = ["roamers", "guides", "gaps", "moderation", "users", "payments", "settings"] as const;
   const nav = tabs.map((k) => ({ key: k, label: t.admin[k], href: href(locale, "/admin", { tab: k }) }));
   const T = (s: string) => t.statuses[s as keyof typeof t.statuses] ?? s;
 
@@ -79,6 +79,58 @@ export default async function AdminPage({ params, searchParams }: Props) {
         ))}
       </ul>
     ) : <p className="text-ink-2">{t.admin.nothing}</p>;
+  } else if (tab === "gaps") {
+    const cities = await db.city.findMany({
+      orderBy: { sortOrder: "asc" },
+      include: {
+        translations: true,
+        roamers: { where: { status: "APPROVED" }, include: { user: { select: { name: true } } } },
+        _count: { select: { guides: { where: { status: "PUBLISHED" } }, guideRequests: true } },
+      },
+    });
+    const cols = t.admin.gapCols.split("|");
+    const rows = cities.map((c) => ({ c, name: (c.translations.find((x) => x.locale === locale) ?? c.translations[0]).name })).sort((a, b) => (a.c._count.guides === 0 ? 0 : 1) - (b.c._count.guides === 0 ? 0 : 1) || b.c._count.guideRequests - a.c._count.guideRequests);
+    const langRows = await Promise.all(["tr", "en", "fr"].map(async (l) => {
+      const [questions, answered, guides, roamers] = await Promise.all([
+        db.question.count({ where: { status: "PUBLISHED", locale: l } }),
+        db.question.count({ where: { status: "PUBLISHED", locale: l, answers: { some: { status: "PUBLISHED" } } } }),
+        db.guide.count({ where: { status: "PUBLISHED", locale: l } }),
+        db.roamerProfile.count({ where: { status: "APPROVED", languages: { contains: l } } }),
+      ]);
+      return { l, questions, answered, guides, roamers };
+    }));
+    const langCols = t.admin.langCols.split("|");
+    body = (
+      <div className="space-y-6">
+      <div className="card overflow-x-auto">
+        <table className="w-full text-[14px]">
+          <thead><tr className="text-left text-ink-2 border-b border-line">{langCols.map((h) => <th key={h} className="p-3">{h}</th>)}</tr></thead>
+          <tbody>
+            {langRows.map((r) => (
+              <tr key={r.l} className="border-b border-line last:border-0">
+                <td className="p-3 font-semibold">{t.languages[r.l as "tr"]}</td><td className="p-3">{r.questions}</td><td className="p-3">{r.answered}</td><td className="p-3">{r.guides}</td><td className="p-3">{r.roamers}</td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+      <div className="card overflow-x-auto">
+        <table className="w-full text-[14px]">
+          <thead><tr className="text-left text-ink-2 border-b border-line">{cols.map((h) => <th key={h} className="p-3">{h}</th>)}</tr></thead>
+          <tbody>
+            {rows.map(({ c, name }) => (
+              <tr key={c.id} className="border-b border-line last:border-0 align-top">
+                <td className="p-3 font-semibold"><Link href={href(locale, `/cities/${c.slug}`)} className="hover:text-brand">{name}</Link></td>
+                <td className="p-3">{c._count.guides === 0 ? <span className="text-rose-700 font-semibold">0</span> : c._count.guides}</td>
+                <td className="p-3">{c._count.guideRequests}</td>
+                <td className="p-3">{c.roamers.length ? c.roamers.map((r, i) => <span key={r.id}>{i > 0 && ", "}<Link href={href(locale, `/roamer/${r.slug}`)} className="hover:text-brand">{r.user.name}</Link></span>) : "—"}</td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+      </div>
+    );
   } else if (tab === "moderation") {
     const [reports, questions, answers] = await Promise.all([
       db.moderationReport.findMany({ orderBy: [{ status: "asc" }, { createdAt: "desc" }], take: 50, include: { reporter: true } }),

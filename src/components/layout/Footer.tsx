@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { LogoMark } from "../Logo";
+import { ConsentLink } from "../Analytics";
 import { href, locales, localeLabels, type Locale } from "@/i18n/config";
 import type { Dictionary } from "@/i18n/dictionaries/tr";
 
@@ -31,7 +32,7 @@ export function Footer({ locale, t }: { locale: Locale; t: Dictionary }) {
       <div className="border-t border-white/10">
         <div className="container-x py-5 text-[13px] text-white/60 flex flex-col md:flex-row gap-2 justify-between">
           <span>© {new Date().getFullYear()} AskARoamer. {t.footer.rights}</span>
-          <span>askaroamer.com</span>
+          <span className="flex gap-4"><ConsentLink label={t.consent.settings} /><span>askaroamer.com</span></span>
         </div>
       </div>
     </footer>

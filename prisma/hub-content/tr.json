@@ -1,0 +1,261 @@
+{
+  "cities": {
+    "bali": {
+      "body": "Bali, sakin bir tempo ve doğayla iç içe bir gündelik hayat isteyen uzaktan çalışanlar için uzun süredir popüler bir adres. Canggu sörf, kafe ve coworking kültürüyle genç göçebelerin buluşma noktası; Ubud yoga, pirinç tarlaları ve daha dingin bir ortam sunuyor; Uluwatu ve Sanur ise kendi karakterleriyle farklı bir ritim arayanlara hitap ediyor.\n\nGünlük düzen büyük ölçüde seçtiğin bölgeye bağlı. İnternet kalitesi evden eve değişebiliyor, bu yüzden yedek bağlantı ya da coworking alanı birçok kişi için pratik bir çözüm. Ulaşım çoğunlukla scooter ve uygulamalı araçlarla sağlanıyor; trafik, yağmur mevsimi ve yol koşulları yeni gelenler için alışma gerektirebiliyor. Market, kafe ve sağlıklı yemek seçenekleri ise turistik bölgelerde bol.\n\nKonaklama, vize, oturum ve sağlık sigortası gibi konular sık değiştiği için resmi kaynaklardan kontrol etmekte fayda var. Bali'de yaşayan bir Roamer'a bölge karşılaştırması, ev bulma yöntemleri, internet testi ve ilk haftalarda nelerle karşılaşacağın hakkında soru sorabilirsin.",
+      "faq": [
+        {
+          "q": "Bali'de dijital göçebe için hangi bölge uygun?",
+          "a": "Sosyal çevre ve coworking arayanlar genellikle Canggu'yu, sakin ve doğayla iç içe bir düzen isteyenler Ubud'u, deniz manzarası ve daha az kalabalık isteyenler Sanur ya da Uluwatu'yu tercih ediyor. İhtiyacına göre bir Roamer'la konuşmak seçimi kolaylaştırır."
+        },
+        {
+          "q": "Bali'de uzaktan çalışırken internet nasıl?",
+          "a": "Bağlantı kalitesi bölgeye ve konaklamaya göre değişiyor. Çoğu göçebe, evde çalışmaya güvenmek yerine coworking alanı kullanıyor ve yedek olarak mobil veri bulunduruyor. Kiralamadan önce internet hızını ev sahibinden mutlaka test ettirmek iyi bir alışkanlık."
+        },
+        {
+          "q": "Bali'ye taşınmadan önce neleri araştırmalıyım?",
+          "a": "Vize ve oturum kurallarını, sağlık sigortasını, konaklama seçeneklerini ve ulaşım düzenini araştırmalısın. Kurallar ve maliyetler sık değiştiği için resmi kaynakları kontrol et; pratik detaylar için Bali'de yaşayan bir Roamer'a soru sorabilirsin. Kendi durumuna özel pratik ipuçları için ilgili konuda deneyimi olan bir Roamer'a soru sorabilirsin."
+        }
+      ]
+    },
+    "lisbon": {
+      "body": "Lizbon, uzaktan çalışanlar, serbest çalışanlar ve girişimciler arasında yıllardır sevilen, yürünebilir ve denize yakın bir şehir. Alfama ve Mouraria tarihi dokusuyla, Bairro Alto ve Príncipe Real gece hayatı ve butik mekanlarıyla, Campo de Ourique ise daha sakin, yerel bir mahalle havasıyla öne çıkıyor. Alcântara ve Parque das Nações modern ofis ve yeni binaların olduğu bölgeler.\n\nŞehir tepelik olduğu için yürüyüş, metro, tramvay ve tren birlikte kullanılıyor; Cascais ve Sintra gibi kıyı ve gezi noktalarına da kolayca ulaşılıyor. Coworking alanları ve kafeler yaygın, uluslararası bir topluluk her zaman bulunuyor. Eski binalarda ısınma, ses yalıtımı ve asansör eksikliği gibi ayrıntılar ev seçerken göz önünde bulundurulmalı. Hafta sonları sahil kasabalarına ve yakın doğa rotalarına kolayca çıkılabiliyor.\n\nKira piyasası, vergi ve oturum kuralları zaman içinde değiştiği için güncel bilgiyi resmi kaynaklardan doğrulamak önemli. Lizbon'da yaşayan bir Roamer'a hangi mahallenin tarzına uyduğunu, ev arama sürecini ve günlük yaşam ayrıntılarını sorabilirsin.",
+      "faq": [
+        {
+          "q": "Lizbon'da dijital göçebe için hangi mahalle iyi?",
+          "a": "Canlı bir çevre isteyenler Príncipe Real ve Bairro Alto'ya, sakin ve yerel bir hava arayanlar Campo de Ourique'e bakıyor. Alcântara ve çevresi de modern binalar ve ofislere yakın. Tercih; bütçene ve yaşam tarzına göre değişir."
+        },
+        {
+          "q": "Lizbon'da araba olmadan yaşanır mı?",
+          "a": "Evet, çoğu kişi yürüyerek, metro, tramvay, otobüs ve trenle idare ediyor. Tepeler yürüyüşü yorucu kılabilir, bu yüzden ev seçerken eğim ve toplu taşımaya yakınlığı düşünmek faydalı. Şehir dışı gezilerde tren sık kullanılıyor. Ayrıntılar kişiden kişiye değiştiği için, kendi planını bir Roamer ile konuşarak netleştirmek her zaman faydalı olur."
+        },
+        {
+          "q": "Lizbon'a taşınırken oturum ve vergi konusunda ne yapmalıyım?",
+          "a": "Oturum ve vergi kuralları sık değişiyor, bu yüzden güncel bilgiyi mutlaka resmi kurumlardan ve gerekirse bir danışmandan almalısın. Süreç deneyimini ise Lizbon'da yaşayan bir Roamer'dan öğrenebilir, hangi adımların nasıl işlediğini sorabilirsin. Kendi durumuna özel pratik ipuçları için ilgili konuda deneyimi olan bir Roamer'a soru sorabilirsin."
+        }
+      ]
+    },
+    "berlin": {
+      "body": "Berlin, yaratıcı sektörler, startup ekosistemi ve çok kültürlü yaşam arayanlar için kendine has bir şehir. Kreuzberg ve Neukölln çok kültürlü, hareketli ve sanatsal; Friedrichshain genç ve gece hayatına yakın; Prenzlauer Berg daha sakin ve aile dostu; Mitte ise merkezi konumu ve ofislere yakınlığıyla öne çıkıyor.\n\nŞehir geniş, ancak U-Bahn, S-Bahn, tramvay ve bisiklet ağı sayesinde araçsız yaşamak mümkün. Kafeler ve coworking alanları çok; ancak bazı işlemlerde hâlâ kâğıt ve randevu gerektiğini unutma. Almanca bilmek günlük hayatı kolaylaştırıyor, ama İngilizce ile de idare edenler çok. Kış aylarında günlerin kısalması, çalışma ritmini ve sosyal planları etkileyebiliyor. Mahalleler arasında karakter farkı büyük olduğu için, taşınmadan önce farklı semtlerde birkaç gün geçirmek karar vermeyi kolaylaştırır. Haftalık pazarlar, parklar ve göller de gündelik hayatın rahatlatıcı yanları arasında yer alıyor.\n\nKonut bulmak, adres kaydı ve sağlık sigortası gibi konular zahmetli olabiliyor ve kurallar değişiyor. Berlin'de yaşayan bir Roamer'a bölge seçimi, ev arama taktikleri ve bürokrasiye hazırlık hakkında soru sorabilirsin.",
+      "faq": [
+        {
+          "q": "Berlin'de yaşamak için hangi semt uygun?",
+          "a": "Canlı ve sanatsal bir ortam için Kreuzberg, Neukölln veya Friedrichshain; daha sakin bir çevre için Prenzlauer Berg; merkezi konum için Mitte öne çıkıyor. Ulaşım bağlantısı ve çevre karakteri açısından bir Roamer'ın görüşü işine yarar."
+        },
+        {
+          "q": "Berlin'de Almanca bilmeden yaşanır mı?",
+          "a": "Günlük hayatta ve uluslararası çevrelerde İngilizce ile idare etmek mümkün. Yine de resmi işlemler, ev arama ve yerel sosyal ortamlarda Almanca avantaj sağlıyor. Temel seviyede bile öğrenmek pek çok durumu kolaylaştırıyor. Ayrıntılar kişiden kişiye değiştiği için, kendi planını bir Roamer ile konuşarak netleştirmek her zaman faydalı olur."
+        },
+        {
+          "q": "Berlin'de ev bulmak zor mu?",
+          "a": "Konut piyasası rekabetçi olabiliyor ve belgeler ile hazırlık önemli. Süreç ve koşullar zamanla değiştiği için güncel bilgi şart. Berlin'de yaşayan bir Roamer'dan ilan stratejileri ve dikkat edilecek noktalar hakkında pratik tavsiye alabilirsin. Kendi durumuna özel pratik ipuçları için ilgili konuda deneyimi olan bir Roamer'a soru sorabilirsin."
+        }
+      ]
+    },
+    "barcelona": {
+      "body": "Barselona, deniz, mimari ve canlı sokak hayatını bir arada isteyen uzaktan çalışanlar için cazip. Gràcia samimi, köy havasında bir mahalle; Eixample düzenli sokakları ve kafeleriyle şehrin merkezinde; El Born ve Gòtic tarihî dokusuyla bilinir; Poblenou ise teknoloji şirketleri, coworking alanları ve sahile yakınlığıyla göçebeler arasında sevilir. Barceloneta daha turistik ve hareketli.\n\nŞehirde metro, otobüs ve bisiklet yaygın, birçok yere yürüyerek de gidilebiliyor. Yoğun turizm sezonlarında bazı bölgeler kalabalıklaşabiliyor, yaz aylarında ise sıcak ve nem günlük planı etkileyebiliyor. İşe uygun kafe ve coworking seçenekleri bol, topluluk etkinlikleri de sık düzenleniyor. Sahil, dağ yürüyüşü rotaları ve küçük kıyı kasabaları şehirden kısa mesafede olduğu için hafta sonu planları da kolay yapılıyor. Birçok kişi gün içinde sahile yakın bir kafede çalışıp akşam mahalle meydanlarında vakit geçiriyor.\n\nKonut, oturum ve vergi konuları zamanla değiştiğinden resmi kaynaklara bakmak gerekiyor. Barselona'da yaşayan bir Roamer'a mahalle seçimi, günlük düzen, gürültü ve ulaşım gibi pratik ayrıntılar ile ilk adımlar hakkında soru sorabilirsin.",
+      "faq": [
+        {
+          "q": "Barselona'da uzaktan çalışmak için hangi bölge iyi?",
+          "a": "Poblenou, coworking alanları ve sahile yakınlığıyla popüler. Gràcia samimi bir atmosfer, Eixample merkezi konum sunuyor. Seçim, sosyal hayat ve sessizlik tercihine göre değişiyor; yerelde yaşayan bir Roamer yardımcı olabilir. Ayrıntılar kişiden kişiye değiştiği için, kendi planını bir Roamer ile konuşarak netleştirmek her zaman faydalı olur."
+        },
+        {
+          "q": "Barselona'da araçsız yaşam mümkün mü?",
+          "a": "Evet, metro, otobüs, tramvay, bisiklet ve yürüyüş günlük ihtiyaçların çoğunu karşılıyor. Merkezde araç sahibi olmak çoğu zaman gereksiz ve zahmetli. Şehir dışı gezilerde tren veya kiralık araç düşünülebilir. Kendi durumuna özel pratik ipuçları için ilgili konuda deneyimi olan bir Roamer'a soru sorabilirsin."
+        },
+        {
+          "q": "Barselona'ya taşınmadan önce nelere dikkat etmeliyim?",
+          "a": "Oturum ve vergi kuralları, konut piyasası ve sağlık sigortası gibi konular sık değişiyor; bunları resmi kaynaklardan doğrula. Mahalle karakterini ve günlük yaşamı ise Barselona'daki bir Roamer'a sorarak daha net anlayabilirsin. Ayrıntılar kişiden kişiye değiştiği için, kendi planını bir Roamer ile konuşarak netleştirmek her zaman faydalı olur."
+        }
+      ]
+    },
+    "bangkok": {
+      "body": "Bangkok, hızlı tempolu, her şeyin bulunduğu ve yemek kültürüyle ünlü bir metropol. Sukhumvit boyunca uzanan Asok, Thonglor ve Ekkamai uluslararası topluluğun ve kafelerin yoğun olduğu bölgeler; Silom ve Sathorn iş merkezlerine yakın; Ari ise daha sakin, yerel bir kafe kültürüne sahip bir semt.\n\nŞehirde BTS, MRT, nehir botları ve uygulamalı taksiler yaygın, ancak trafik ve sıcak hava günlük planı etkileyebiliyor. Bu yüzden birçok kişi toplu taşımaya yakın bir ev seçiyor. İnternet genelde güçlü, alışveriş merkezlerinde ve kafelerde çalışmak yaygın, coworking alanları da çok. Sokak yemeği ve market alışverişi günlük hayatı oldukça kolaylaştırıyor. Kapalı alanlarda klimalı çalışma ortamları çok olduğu için sıcak havada bile verimli çalışmak mümkün. Hafta sonları şehir parkları, pazarlar ve kısa kıyı gezileri popüler seçenekler.\n\nVize, oturum ve sağlık sigortası kuralları değiştiği için resmi kaynaklara bakmak gerekiyor. Bangkok'ta yaşayan bir Roamer'a semt seçimi, ev arama, ulaşım alışkanlıkları ve günlük hayat hakkında soru sorabilirsin.",
+      "faq": [
+        {
+          "q": "Bangkok'ta dijital göçebe hangi semtte kalmalı?",
+          "a": "Sukhumvit çevresi, yani Asok, Thonglor ve Ekkamai, toplu taşıma ve kafe yoğunluğu nedeniyle sık tercih ediliyor. Ari daha sakin ve yerel hissettirir. Seçerken BTS veya MRT istasyonuna yakınlık önemli. Kendi durumuna özel pratik ipuçları için ilgili konuda deneyimi olan bir Roamer'a soru sorabilirsin."
+        },
+        {
+          "q": "Bangkok'ta ulaşım nasıl?",
+          "a": "BTS ve MRT trafikten kaçınmak için en pratik seçenekler; nehir botları ve uygulamalı taksiler de yaygın. Trafik yoğun olabildiği için ev ve iş yerini toplu taşıma hattı yakınında seçmek günlük konforu artırır. Ayrıntılar kişiden kişiye değiştiği için, kendi planını bir Roamer ile konuşarak netleştirmek her zaman faydalı olur."
+        },
+        {
+          "q": "Bangkok'a taşınırken vize ve sigorta için ne yapmalıyım?",
+          "a": "Vize, oturum ve sağlık sigortası koşulları sık değişiyor; güncel bilgiyi resmi kaynaklardan kontrol etmelisin. Pratik süreç ve deneyimler için Bangkok'ta yaşayan bir Roamer'a danışmak da faydalı olacaktır. Kendi durumuna özel pratik ipuçları için ilgili konuda deneyimi olan bir Roamer'a soru sorabilirsin."
+        }
+      ]
+    },
+    "tokyo": {
+      "body": "Tokyo, düzen, güvenlik ve çok katmanlı şehir hayatı arayanlar için eşsiz bir şehir. Shibuya ve Shinjuku canlı, kalabalık ve iş merkezlerine yakın; Nakameguro ve Daikanyama şık ve sakin kafelerle öne çıkıyor; Setagaya ve Koenji daha yerel, yaşanabilir semtler olarak biliniyor.\n\nToplu taşıma sistemi çok kapsamlı ve dakik; çoğu kişi araba kullanmadan yaşıyor. İnternet altyapısı güçlü, kafeler ve coworking alanları mevcut. Konbini denilen market zincirleri ve yakın mesafedeki küçük dükkanlar günlük ihtiyaçları kolayca karşılıyor. Öte yandan dil bariyeri, evrak işleri ve konut kiralama süreçleri yabancılar için zorlayıcı olabiliyor. Semtler arası mesafeler büyük görünse de tren hatları sayesinde çalışma, yemek ve sosyal hayat arasında geçiş kolay. Küçük ama düzenli evler ve sessiz sokaklar, odaklanmak isteyenler için rahat bir ortam sağlıyor.\n\nVize ve oturum kuralları ile konut koşulları zaman içinde değişiyor, bu yüzden resmi kaynaklara bakmak gerekiyor. Tokyo'da yaşayan bir Roamer'a hangi semtin sana uyduğunu, ev bulma sürecini ve günlük yaşam ipuçlarını sorabilirsin.",
+      "faq": [
+        {
+          "q": "Tokyo'da yabancılar için hangi semt uygun?",
+          "a": "Canlı çevre ve kolay ulaşım için Shibuya ve Shinjuku, sakin ve şık bir ortam için Nakameguro, daha yerel bir yaşam için Setagaya veya Koenji tercih edilebilir. Karar vermeden önce gezip bir Roamer'a danışmak iyi olur."
+        },
+        {
+          "q": "Tokyo'da Japonca bilmeden yaşanır mı?",
+          "a": "Günlük hayatta ve turistik bölgelerde İngilizce ile idare edilebiliyor, ancak ev kiralama, resmi işlemler ve yerel sosyalleşmede Japonca büyük avantaj sağlıyor. Temel seviyede öğrenmek hayatı belirgin biçimde kolaylaştırır. Ayrıntılar kişiden kişiye değiştiği için, kendi planını bir Roamer ile konuşarak netleştirmek her zaman faydalı olur."
+        },
+        {
+          "q": "Tokyo'da ev kiralamak zor mu?",
+          "a": "Yabancılar için süreç, belgeler ve aracı şirket gereklilikleri nedeniyle karmaşık olabiliyor. Koşullar değiştiği için güncel bilgi gerekiyor. Tokyo'da yaşayan bir Roamer'dan ev arama deneyimini ve dikkat edilecekleri öğrenebilirsin. Kendi durumuna özel pratik ipuçları için ilgili konuda deneyimi olan bir Roamer'a soru sorabilirsin."
+        }
+      ]
+    },
+    "chiang-mai": {
+      "body": "Chiang Mai, sakin bir tempo, doğaya yakınlık ve köklü bir uzaktan çalışan topluluğu arayanlar için ideal. Nimman (Nimmanhaemin) kafeleri ve coworking alanlarıyla göçebelerin merkezi; Old City tapınakları ve dar sokaklarıyla tarihî bir atmosfer sunuyor; Santitham ve çevresi ise daha yerel ve rahat bir yaşam sağlıyor.\n\nŞehir küçük ve ulaşım çoğunlukla scooter, songthaew denilen paylaşımlı araçlar ve uygulamalı taksilerle sağlanıyor. İnternet genellikle kafelerde ve coworking alanlarında sorunsuz. Hafta sonları şehir çevresindeki dağlara, şelalelere ve köylere kısa gezilere çıkmak yaygın. Yılın bazı dönemlerinde hava kalitesi sorun olabilir, bu yüzden zamanlamayı araştırmak önemli. Şehir merkezinde yürüyerek ya da bisikletle dolaşmak mümkün; pazarlar, kafeler ve sağlıklı yemek seçenekleri günlük rutini kolaylaştırıyor. Uzun süre kalanların çoğu, ev ve coworking arasında kısa bir mesafe olmasına dikkat ediyor.\n\nVize ve oturum kuralları sık değiştiği için resmi kaynakları kontrol etmelisin. Chiang Mai'de yaşayan bir Roamer'a semt seçimi, mevsimsel durumlar, ev arama ve günlük hayat hakkında soru sorabilirsin.",
+      "faq": [
+        {
+          "q": "Chiang Mai'de dijital göçebe için hangi bölge iyi?",
+          "a": "Nimman, kafeleri, coworking alanları ve sosyal çevresiyle en popüler seçenek. Old City daha tarihî ve sakin, Santitham ise daha yerel bir yaşam sunuyor. Seçim tercihlerine ve ulaşım biçimine göre değişir. Ayrıntılar kişiden kişiye değiştiği için, kendi planını bir Roamer ile konuşarak netleştirmek her zaman faydalı olur."
+        },
+        {
+          "q": "Chiang Mai'ye ne zaman gitmek en iyi?",
+          "a": "Yılın bazı dönemlerinde hava kalitesi düşebiliyor, bu da planı etkileyebilir. Gitmeden önce mevsimsel koşulları araştırmak ve Chiang Mai'de yaşayan bir Roamer'a sormak daha rahat bir deneyim için yardımcı olur. Kendi durumuna özel pratik ipuçları için ilgili konuda deneyimi olan bir Roamer'a soru sorabilirsin."
+        },
+        {
+          "q": "Chiang Mai'de ulaşım nasıl sağlanıyor?",
+          "a": "Birçok kişi scooter kullanıyor; songthaew denilen paylaşımlı araçlar ve uygulamalı taksiler de yaygın. Şehir küçük olduğu için çoğu yer kısa mesafede. Scooter kullanırken sürüş koşullarını ve sigorta durumunu önceden araştırmak gerekir. Ayrıntılar kişiden kişiye değiştiği için, kendi planını bir Roamer ile konuşarak netleştirmek her zaman faydalı olur."
+        }
+      ]
+    },
+    "mexico-city": {
+      "body": "Mexico City, büyük şehir enerjisini, güçlü bir yemek ve sanat kültürüyle buluşturan, uzaktan çalışanlar için giderek daha çok tercih edilen bir şehir. Roma Norte ve Condesa ağaçlıklı sokakları, kafeleri ve coworking alanlarıyla göçebelerin favorisi; Polanco daha şık ve iş odaklı; Coyoacán ise sakin, tarihî ve kültürel bir mahalle.\n\nŞehir çok geniş olduğu için ulaşımda metro, metrobüs ve uygulamalı araçlar birlikte kullanılıyor. İnternet çoğu bölgede iyi, kafe ve coworking seçenekleri bol. Yüksek rakım, trafik ve yağışlı mevsim gibi etkenlere alışmak biraz zaman alabilir. Parklar, müzeler ve pazarlar ise hafta sonlarını dolu dolu geçirmeni sağlıyor. Şehrin farklı bölgeleri arasındaki karakter farkı büyük olduğu için, ilk günlerde kısa süreli bir konaklama ile semtleri tanımak iyi bir yöntem. Yemek kültürü ve sokak hayatı, günlük rutinin keyifli bir parçası.\n\nGüvenlik, vize ve oturum konuları için güncel resmi kaynaklara bakmak gerekiyor. Mexico City'de yaşayan bir Roamer'a mahalle seçimi, günlük rutin ve yeni gelenler için ipuçları hakkında soru sorabilirsin.",
+      "faq": [
+        {
+          "q": "Mexico City'de yaşamak için hangi mahalle uygun?",
+          "a": "Roma Norte ve Condesa yürünebilir, kafe dolu ve göçebe dostu. Polanco daha şık ve iş odaklı, Coyoacán ise sakin ve kültürel. Mahalleye karar vermeden önce kısa süreli kalmak ve bir Roamer'a danışmak iyi bir yöntem."
+        },
+        {
+          "q": "Mexico City güvenli mi?",
+          "a": "Güvenlik mahalleye ve saate göre değişiyor; çoğu yabancı turistik ve yerleşik bölgelerde rahat yaşıyor. Genel önlemleri almak önemli. Güncel durum için resmi uyarılara bakmalı ve şehirde yaşayan bir Roamer'ın deneyimlerinden yararlanmalısın. Kendi durumuna özel pratik ipuçları için ilgili konuda deneyimi olan bir Roamer'a soru sorabilirsin."
+        },
+        {
+          "q": "Mexico City'de ulaşım nasıl?",
+          "a": "Metro, metrobüs ve uygulamalı araçlar yaygın olarak kullanılıyor. Şehir büyük olduğu için ev ve iş yerini yakın seçmek zaman kazandırıyor. Yoğun saatlerde trafik ve kalabalık olabileceğini göz önünde bulundurmak gerekir. Ayrıntılar kişiden kişiye değiştiği için, kendi planını bir Roamer ile konuşarak netleştirmek her zaman faydalı olur."
+        }
+      ]
+    },
+    "miami": {
+      "body": "Miami, sıcak iklim, plajlar ve uluslararası bir iş çevresi arayan girişimciler ile uzaktan çalışanlar için dikkat çekiyor. Brickell finans ve yüksek binalarla iş odaklı bir bölge; Wynwood sanat ve yaratıcı sektörlerin merkezi; South Beach plaj ve gece hayatıyla bilinir; Coconut Grove ise daha yeşil ve sakin bir yaşam sunuyor.\n\nMiami araba kültürünün güçlü olduğu bir şehir; toplu taşıma seçenekleri sınırlı olabiliyor ve mesafeler uzun. Bu yüzden konaklama seçerken ulaşım ihtiyacını düşünmek gerekiyor. İnternet altyapısı güçlü, coworking alanları ve girişimci etkinlikleri mevcut. Yaz aylarında sıcak ve nem ile fırtına sezonu günlük planları etkileyebiliyor. Çalışma saatlerini serinlik ve trafik durumuna göre ayarlamak yaygın bir alışkanlık. Plaj, bisiklet yolları ve açık hava etkinlikleri ise iş sonrası vakti değerlendirmenin popüler yolları arasında.\n\nVize, oturum, vergi ve konut koşulları ABD kurallarına bağlı ve sık değişebilir; resmi kaynakları ve gerekirse uzman görüşünü kontrol etmelisin. Miami'de yaşayan bir Roamer'a bölge seçimi ve günlük hayat hakkında soru sorabilirsin.",
+      "faq": [
+        {
+          "q": "Miami'de uzaktan çalışmak için hangi bölge uygun?",
+          "a": "Brickell iş merkezlerine ve ofislere yakın, Wynwood yaratıcı ve sanatsal bir ortam, Coconut Grove ise daha yeşil ve sakin. South Beach plaja yakın ama daha turistik. Tercih, yaşam tarzına ve ulaşım ihtiyacına bağlı. Kendi durumuna özel pratik ipuçları için ilgili konuda deneyimi olan bir Roamer'a soru sorabilirsin."
+        },
+        {
+          "q": "Miami'de araba şart mı?",
+          "a": "Şehir araba odaklı olduğu için birçok kişi araç kullanıyor. Brickell gibi bazı bölgelerde toplu taşıma ve yürüyüş mümkün olsa da mesafeler uzun olabilir. Ev seçerken ulaşım ihtiyacını önceden netleştirmek faydalı. Ayrıntılar kişiden kişiye değiştiği için, kendi planını bir Roamer ile konuşarak netleştirmek her zaman faydalı olur."
+        },
+        {
+          "q": "Miami'ye taşınırken vize ve vergi için ne yapmalıyım?",
+          "a": "ABD'de vize, oturum ve vergi kuralları karmaşık ve sık değişebiliyor. Güncel bilgiyi resmi kaynaklardan ve gerekirse bir uzmandan almalısın. Günlük hayat ve pratik deneyimler için Miami'de yaşayan bir Roamer'a danışabilirsin. Kendi durumuna özel pratik ipuçları için ilgili konuda deneyimi olan bir Roamer'a soru sorabilirsin."
+        }
+      ]
+    },
+    "prague": {
+      "body": "Prag, tarihî atmosferi, yürünebilir yapısı ve görece sakin tempo ile Avrupa'da yaşamak isteyen uzaktan çalışanlar için çekici. Vinohrady ağaçlıklı sokakları ve kafeleriyle popüler; Karlín modern ofisler ve restoranlarla öne çıkıyor; Žižkov daha alternatif ve hareketli; Staré Město ise tarihî merkez olarak turistik yoğunluğa sahip. Smíchov ise ulaşım ve alışveriş açısından rahat bir seçenek.\n\nŞehirde tramvay, metro ve otobüs ağı iyi çalışıyor, çoğu yere araba olmadan ulaşmak kolay. Kafeler ve coworking alanları yeterli, internet genelde güvenilir. Kışın hava soğuk olabiliyor, bu yüzden mevsimi hesaba katmak iyi olur. Parklar, nehir kıyısı ve bira bahçeleri ise sosyal hayatın önemli parçaları. Küçük mesafelerde yürümek mümkün olduğu için birçok kişi gün içinde kafe, coworking ve ev arasında rahatça geçiş yapıyor. Tarihî binalarda yaşarken ısınma ve ses yalıtımı gibi ayrıntılara dikkat etmekte fayda var.\n\nVize, oturum ve konut koşulları değişebileceği için resmi kaynakları kontrol etmelisin. Prag'da yaşayan bir Roamer'a semt seçimi, ev arama ve günlük yaşam hakkında soru sorabilirsin.",
+      "faq": [
+        {
+          "q": "Prag'da yaşamak için hangi semt iyi?",
+          "a": "Vinohrady ağaçlıklı ve rahat bir çevre, Karlín modern ve iş odaklı, Žižkov daha canlı ve alternatif. Tarihî merkez Staré Město turistik yoğunluğu nedeniyle uzun süreli yaşam için herkese uymayabilir. Bir Roamer'la konuşmak yardımcı olur."
+        },
+        {
+          "q": "Prag'da toplu taşıma yeterli mi?",
+          "a": "Evet, tramvay, metro ve otobüs ağı kapsamlı ve düzenli çalışıyor. Çoğu kişi araba kullanmadan yaşıyor. Ev ararken tramvay veya metro durağına yakınlığa bakmak günlük hayatı belirgin biçimde kolaylaştırıyor. Ayrıntılar kişiden kişiye değiştiği için, kendi planını bir Roamer ile konuşarak netleştirmek her zaman faydalı olur."
+        },
+        {
+          "q": "Prag'a taşınmadan önce neleri kontrol etmeliyim?",
+          "a": "Vize, oturum, sağlık sigortası ve konut koşulları zamanla değişebiliyor; bu yüzden resmi kaynakları kontrol et. Günlük hayat ve semt deneyimleri için Prag'da yaşayan bir Roamer'a soru sorabilirsin. Kendi durumuna özel pratik ipuçları için ilgili konuda deneyimi olan bir Roamer'a soru sorabilirsin."
+        }
+      ]
+    }
+  },
+  "categories": {
+    "nomad-life": {
+      "body": "Dijital göçebe yaşamı, uzaktan çalışırken farklı şehirlerde ve ülkelerde yaşamayı kapsıyor. Bu kategoride rota planlama, şehir seçimi, çalışma düzeni, topluluk bulma, sağlık ve sigorta gibi günlük hayatı ilgilendiren konular yer alıyor.\n\nİnsanlar genellikle nereye gideceklerini, ne kadar süre kalacaklarını, hangi bölgede konaklayacaklarını, internet ve coworking seçeneklerini ve yalnız hissetmeden nasıl sosyalleşeceklerini soruyor. Sürekli hareket halinde olmanın getirdiği yorgunluk, rutin kurma, zaman dilimi farkları ve iş-yaşam dengesi de sık gündeme gelen başlıklar. Bagaj, kalıcı adres ve sağlık sigortası gibi pratik detaylar da merak edilenler arasında. Rota seçerken mevsim, topluluk büyüklüğü ve çalışma saatlerine uygun saat dilimi gibi etkenler de belirleyici oluyor.\n\nRoamer'lar, bu tarz bir hayatı bizzat yaşamış ya da yaşayan kişiler olarak pratik deneyimlerini paylaşıyor. Kendi rotanla ilgili sorularını sorabilir, gerekirse 1:1 görüşme ayarlayabilir veya şehir rehberlerinden yararlanabilirsin. Vize ve maliyet gibi değişken konularda ise resmi kaynakları kontrol etmeyi unutma.",
+      "faq": [
+        {
+          "q": "Dijital göçebe olmak için nereden başlamalıyım?",
+          "a": "Önce işini uzaktan yürütüp yürütemeyeceğini netleştir, ardından kısa süreli bir deneme planla. Şehir seçimi, internet, konaklama ve sigorta gibi başlıkları araştır. Deneyimli bir Roamer'a sorarak ilk adımlarını daha güvenli atabilirsin. Ayrıntılar kişiden kişiye değiştiği için, kendi planını bir Roamer ile konuşarak netleştirmek her zaman faydalı olur."
+        },
+        {
+          "q": "Dijital göçebe için en iyi şehir nasıl seçilir?",
+          "a": "Çalışma saatlerin, bütçen, iklim tercihin, topluluk ihtiyacın ve vize koşulları belirleyici olur. Tek bir en iyi şehir yok; kişiye göre değişiyor. Şehirlerde yaşayan Roamer'lara soru sorarak seçeneklerini karşılaştırabilirsin. Kendi durumuna özel pratik ipuçları için ilgili konuda deneyimi olan bir Roamer'a soru sorabilirsin."
+        },
+        {
+          "q": "Gezgin hayatta yalnızlıkla nasıl başa çıkılır?",
+          "a": "Coworking alanları, yerel etkinlikler ve göçebe toplulukları yeni insanlarla tanışmayı kolaylaştırıyor. Biraz uzun süre kalmak ve rutin oluşturmak da yardımcı olur. Roamer'lar, bulundukları şehirdeki sosyal ortamlar hakkında fikir verebilir. Ayrıntılar kişiden kişiye değiştiği için, kendi planını bir Roamer ile konuşarak netleştirmek her zaman faydalı olur."
+        }
+      ]
+    },
+    "relocation": {
+      "body": "Taşınma kategorisi, başka bir şehre ya da ülkeye yerleşmek isteyenlerin karşılaştığı konuları kapsıyor: vize ve oturum süreçleri, konut arama, adres kaydı, sağlık sigortası, banka hesabı, vergi ve günlük hayata uyum gibi.\n\nİnsanlar genellikle hangi belgelerin gerektiğini, sürecin nasıl işlediğini, ilk haftalarda nelere dikkat edeceklerini, hangi bölgede ev arayacaklarını ve yerel bürokrasiyle nasıl başa çıkacaklarını soruyor. Eşya taşıma, evcil hayvan, çocukların okulu ve yeni ülkede sosyal çevre kurma da sık sorulan başlıklar. Bu kuralların çoğu zamanla değişiyor, bu yüzden güncel bilgiyi resmi kaynaklardan doğrulamak gerekiyor. Taşınma sonrası ilk aylarda yerel hayata alışmak, dil öğrenmek ve yeni bir sosyal çevre kurmak da sürecin doğal parçaları.\n\nRoamer'lar, bu süreci kendileri yaşamış kişiler olarak pratik deneyimlerini paylaşıyor. Hukuki veya resmi tavsiye vermiyorlar; ama hangi adımların nasıl işlediğini, nelere dikkat edilmesi gerektiğini ve yaygın hataları anlatabiliyorlar. Kendi durumunla ilgili sorularını sorarak yola daha hazırlıklı çıkabilirsin.",
+      "faq": [
+        {
+          "q": "Yurt dışına taşınırken önce ne yapmalıyım?",
+          "a": "Önce hedef ülkenin vize ve oturum koşullarını resmi kaynaklardan araştır. Ardından konut, sağlık sigortası ve bütçe planını yap. Kurallar değiştiği için güncel bilgi şart; deneyimleri için o ülkede yaşayan bir Roamer'a danışabilirsin. Kendi durumuna özel pratik ipuçları için ilgili konuda deneyimi olan bir Roamer'a soru sorabilirsin."
+        },
+        {
+          "q": "Taşınma sürecinde en sık yapılan hatalar neler?",
+          "a": "Belgeleri geç hazırlamak, güncel olmayan bilgilere güvenmek, konut koşullarını önceden araştırmamak ve bürokratik süreçlerin süresini hafife almak sık yapılan hatalar. Roamer'lar, kendi deneyimlerinden yola çıkarak bu tuzakları anlatabilir. Ayrıntılar kişiden kişiye değiştiği için, kendi planını bir Roamer ile konuşarak netleştirmek her zaman faydalı olur."
+        },
+        {
+          "q": "Oturum ve vize için Roamer'dan resmi bilgi alabilir miyim?",
+          "a": "Roamer'lar resmi ya da hukuki danışman değil, kendi deneyimlerini paylaşan kişiler. Vize ve oturum konusunda kesin bilgi için resmi kurumlara veya yetkili uzmanlara başvurmalı, Roamer'dan ise pratik ipuçlarını almalısın. Kendi durumuna özel pratik ipuçları için ilgili konuda deneyimi olan bir Roamer'a soru sorabilirsin."
+        }
+      ]
+    },
+    "travel": {
+      "body": "Seyahat kategorisi, gezi planlamasından rota oluşturmaya, mevsim seçiminden ulaşıma ve konaklamaya kadar yolculuğun tüm aşamalarını kapsıyor. Kısa bir hafta sonu kaçamağı da, uzun bir macera da bu başlık altında yer alıyor.\n\nİnsanlar genellikle bir şehirde kaç gün geçirmeleri gerektiğini, hangi bölgede kalacaklarını, nasıl dolaşacaklarını, hangi aktivitelerin gerçekten değerli olduğunu ve kalabalık turistik noktalardan nasıl kaçınacaklarını soruyor. Hangi mevsimin uygun olduğu, yerel yemekler, güvenlik ve bağlantı seçenekleri de sık merak edilen konular. Fiyatlar ve koşullar sık değiştiği için güncel bilgiyi kontrol etmek önemli. Ulaşım, bağlantı ve yerel adetler konusunda önceden bilgi sahibi olmak, yolculuğu çok daha rahat hale getiriyor.\n\nRoamer'lar, gittiğin yerde yaşayan veya o yeri iyi tanıyan kişiler olarak yerel bakış açısı sunuyor. Rotanla ilgili sorularını sorabilir, 1:1 görüşmeyle planını birlikte gözden geçirebilir ya da şehir rehberleriyle hazırlıklı yola çıkabilirsin. Böylece genel listeler yerine sana uygun, daha kişisel bir plan yapabilirsin.",
+      "faq": [
+        {
+          "q": "Bir şehir gezisini nasıl planlamalıyım?",
+          "a": "Önce kaç gün kalacağını ve ne tür bir deneyim istediğini belirle. Sonra konaklama bölgesini, ulaşımı ve öncelikli yerleri seç. Yoğun program yerine esneklik bırakmak iyi olur. Roamer'lar yerel ipuçlarıyla planı kişiselleştirebilir. Ayrıntılar kişiden kişiye değiştiği için, kendi planını bir Roamer ile konuşarak netleştirmek her zaman faydalı olur."
+        },
+        {
+          "q": "Turistik tuzaklardan nasıl kaçınılır?",
+          "a": "Rehber ve yorumları karşılaştırmak, kalabalık saatleri önceden araştırmak ve yerel önerilere başvurmak yardımcı olur. Gittiğin şehirde yaşayan bir Roamer'a sorarak popüler ama değersiz noktaları ayıklayabilirsin. Kendi durumuna özel pratik ipuçları için ilgili konuda deneyimi olan bir Roamer'a soru sorabilirsin."
+        },
+        {
+          "q": "Seyahat için Roamer'dan nasıl yardım alabilirim?",
+          "a": "Gideceğin şehirle ilgili bir Roamer'a soru sorabilir ya da 1:1 görüşme ayarlayabilirsin. Mahalle, ulaşım, yemek ve rota gibi konularda yerel bakış açısı alırsın. Şehir rehberleri de hazırlık için ek kaynak olabilir. Ayrıntılar kişiden kişiye değiştiği için, kendi planını bir Roamer ile konuşarak netleştirmek her zaman faydalı olur."
+        }
+      ]
+    },
+    "work-business": {
+      "body": "İş ve kariyer kategorisi, uzaktan çalışma, serbest çalışma, girişimcilik ve startup konularını kapsıyor. Yurt dışından çalışmak, müşteri bulmak, şirket kurmak, ekip yönetmek ve verimli bir çalışma düzeni oluşturmak gibi başlıklar burada yer alıyor.\n\nİnsanlar genellikle uzaktan çalışırken hangi şehrin kendilerine uygun olduğunu, freelance iş nasıl bulunur, vergi ve şirket yapısı konusunda nelere dikkat edilmesi gerektiğini, farklı zaman dilimlerinde nasıl çalışılacağını ve iş ağını nasıl genişletecekleri soruyor. Vergi ve hukuki konular ülkeye göre değiştiği için uzman görüşü almak gerekiyor. Coworking alanları, topluluk etkinlikleri ve yerel iş çevreleri de bu kategorideki sık konuşulan başlıklar arasında. Bir şehrin iş dünyasına nasıl girileceği, hangi ağlara katılınacağı da merak ediliyor.\n\nRoamer'lar, farklı ülkelerde çalışan ve iş kuran kişiler olarak pratik deneyimlerini paylaşıyor. Kendi durumunla ilgili sorularını sorabilir, 1:1 görüşmelerle yol haritanı netleştirebilirsin. Deneyim paylaşımı resmi veya hukuki danışmanlığın yerini tutmaz, ancak çalışma ortamı, coworking seçimi ve müşteri ilişkileri gibi konularda karar verirken değerli bir bakış açısı sağlar.",
+      "faq": [
+        {
+          "q": "Yurt dışından uzaktan çalışırken nelere dikkat etmeliyim?",
+          "a": "İşverenin politikalarını, vergi yükümlülüklerini, sağlık sigortasını ve çalışma izni koşullarını kontrol etmelisin. Bunlar ülkeye göre değişir ve sık güncellenir. Resmi kaynaklara ve uzmanlara danışmanın yanında Roamer deneyimleri de yol gösterebilir. Kendi durumuna özel pratik ipuçları için ilgili konuda deneyimi olan bir Roamer'a soru sorabilirsin."
+        },
+        {
+          "q": "Freelance olarak müşteri nasıl bulunur?",
+          "a": "Portfolyo oluşturmak, ağını genişletmek, referanslardan yararlanmak ve uzmanlık alanını netleştirmek yardımcı olur. Platformlar ve topluluklar da fırsat sunar. Freelance çalışan Roamer'lar kendi deneyimlerini ve yöntemlerini paylaşabilir. Ayrıntılar kişiden kişiye değiştiği için, kendi planını bir Roamer ile konuşarak netleştirmek her zaman faydalı olur."
+        },
+        {
+          "q": "Yurt dışında şirket kurmak için ne yapmalıyım?",
+          "a": "Şirket yapısı, vergi ve izin koşulları ülkeye göre değişiyor ve sık güncelleniyor. Resmi kaynaklardan ve yetkili bir danışmandan bilgi almalısın. Roamer'lar süreci yaşayan kişiler olarak pratik deneyimlerini paylaşabilir. Kendi durumuna özel pratik ipuçları için ilgili konuda deneyimi olan bir Roamer'a soru sorabilirsin."
+        }
+      ]
+    },
+    "cost-of-living": {
+      "body": "Yaşam maliyeti kategorisi, bir şehirde yaşamanın günlük gerçeklerini kapsıyor: kira, ulaşım, yemek, sağlık, eğlence ve beklenmedik harcamalar. Amaç tek bir rakam vermek değil, bütçeni neyin etkilediğini anlamana yardımcı olmak.\n\nİnsanlar genellikle bir şehrin kendi bütçelerine uyup uymadığını, hangi mahallede kira daha makul olduğunu, kısa ve uzun dönem konaklama arasındaki farkı, gizli giderlerin neler olduğunu ve yaşam tarzının maliyeti nasıl değiştirdiğini soruyor. Kur farkları, mevsimsel dalgalanmalar ve depozito gibi kalemler de merak ediliyor. Fiyatlar sık değiştiği için güncel bilgi şart. Mahalle seçimi, konaklama türü ve yeme içme alışkanlıkları toplam harcamayı en çok etkileyen unsurlar. Aynı şehirde bile semte ve yaşam tarzına göre bütçe ciddi biçimde farklılaşabiliyor, bu yüzden genel ortalamalar yanıltıcı olabilir.\n\nRoamer'lar, orada yaşayan kişiler olarak harcamalarının hangi kalemlerde yoğunlaştığını, nerelerde tasarruf edilebildiğini ve nelerin beklenenden pahalı olduğunu kendi deneyimleriyle anlatıyor. Kendi bütçenle ilgili sorularını sorabilir, böylece kararını güncel ve gerçekçi bilgilere dayandırabilirsin.",
+      "faq": [
+        {
+          "q": "Bir şehrin yaşam maliyetini nasıl değerlendirmeliyim?",
+          "a": "Kira, ulaşım, yemek, sağlık ve sosyal harcamaları ayrı ayrı düşün; yaşam tarzın sonucu en çok etkiler. Fiyatlar sık değiştiği için güncel kaynaklara bak. O şehirde yaşayan bir Roamer'dan gerçekçi bir tablo alabilirsin. Ayrıntılar kişiden kişiye değiştiği için, kendi planını bir Roamer ile konuşarak netleştirmek her zaman faydalı olur."
+        },
+        {
+          "q": "Kira bütçesini planlarken nelere dikkat etmeliyim?",
+          "a": "Mahalleye, sözleşme süresine, depozito ve fatura koşullarına dikkat et. Kısa dönem konaklama genelde daha esnek ama farklı maliyetli olabilir. Güncel piyasa bilgisi için ilanlara bakmalı ve yerel bir Roamer'a danışmalısın. Kendi durumuna özel pratik ipuçları için ilgili konuda deneyimi olan bir Roamer'a soru sorabilirsin."
+        },
+        {
+          "q": "Yaşam maliyetinde gizli giderler neler olabilir?",
+          "a": "Sağlık sigortası, vize ve izin masrafları, ulaşım, coworking üyeliği, döviz farkları ve ev kurulum giderleri sıkça gözden kaçıyor. Bu kalemler şehre göre değişir. Roamer'lar kendi yaşadıkları sürprizleri paylaşabilir. Ayrıntılar kişiden kişiye değiştiği için, kendi planını bir Roamer ile konuşarak netleştirmek her zaman faydalı olur."
+        }
+      ]
+    }
+  }
+}

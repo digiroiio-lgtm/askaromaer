@@ -36,6 +36,7 @@ model User {
   reports       ModerationReport[] @relation("Reporter")
   modActions    ModerationAction[] @relation("ModActor")
   verifications VerificationRecord[] @relation("Reviewer")
+  guideRequests GuideRequest[]
 }
 
 // One account, many capabilities: TRAVELER (default), ROAMER, ADMIN
@@ -73,6 +74,18 @@ model City {
   roamers      RoamerProfile[]
   questions    Question[]
   guides       Guide[]
+  guideRequests GuideRequest[]
+}
+
+model GuideRequest {
+  id        String   @id @default(cuid())
+  userId    String
+  cityId    String
+  createdAt DateTime @default(now())
+  user      User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  city      City     @relation(fields: [cityId], references: [id], onDelete: Cascade)
+
+  @@unique([userId, cityId])
 }
 
 model CityTranslation {
@@ -83,6 +96,8 @@ model CityTranslation {
   country String
   locative String // Turkish locative form e.g. "Lizbon’da"; equals name for other locales
   intro   String
+  body    String @default("") // long-form text, paragraphs separated by blank line
+  faq     String @default("[]") // JSON: [{ q, a }]
   city    City   @relation(fields: [cityId], references: [id], onDelete: Cascade)
 
   @@unique([cityId, locale])
@@ -106,6 +121,8 @@ model CategoryTranslation {
   locale      String
   name        String
   description String
+  body        String   @default("")
+  faq         String   @default("[]")
   category    Category @relation(fields: [categoryId], references: [id], onDelete: Cascade)
 
   @@unique([categoryId, locale])

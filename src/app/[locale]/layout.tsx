@@ -2,7 +2,9 @@ import "../globals.css";
 import type { Metadata, Viewport } from "next";
 import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
+import { Suspense } from "react";
 import { JsonLd } from "@/components/ui";
+import { Analytics } from "@/components/Analytics";
 import { resolveLocale } from "@/i18n";
 import { hreflangCodes, href } from "@/i18n/config";
 import { SITE_URL } from "@/lib/constants";
@@ -17,6 +19,7 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: s
     description: t.meta.homeDescription,
     applicationName: "AskARoamer",
     icons: { icon: "/icon.svg" },
+    ...(process.env.NEXT_PUBLIC_GSC_VERIFICATION ? { verification: { google: process.env.NEXT_PUBLIC_GSC_VERIFICATION } } : {}),
   };
 }
 
@@ -38,6 +41,7 @@ export default async function LocaleLayout({ children, params }: { children: Rea
         <Header locale={locale} t={t} />
         <main id="main" className="flex-1">{children}</main>
         <Footer locale={locale} t={t} />
+        <Suspense><Analytics t={t.consent} /></Suspense>
       </body>
     </html>
   );

@@ -12,6 +12,8 @@ import { ActionForm, Textarea } from "@/components/forms";
 import { ConfirmButton, SubmitButton } from "@/components/client";
 import { cancelBookingAction, reviewBookingAction } from "@/actions/commerce";
 import { one, type SP } from "@/components/filters";
+import { TrackOnMount } from "@/components/Analytics";
+import { purchaseParams } from "@/lib/purchase-event";
 
 type Props = { params: Promise<{ locale: string }>; searchParams: Promise<SP> };
 export async function generateMetadata({ params }: Props) { const { t } = await resolveLocale(params); return privateMetadata(t.account.bookings); }
@@ -26,9 +28,11 @@ export default async function BookingsPage({ params, searchParams }: Props) {
     orderBy: { startsAt: "desc" },
   });
   const now = new Date();
+  const pp = await purchaseParams(one(sp, "paid"), user.id);
   return (
     <DashShell nav={<SideNav title={t.account.title} items={accountNav(locale, t)} active="bookings" />}>
       <h1 className="text-[36px]">{t.account.bookings}</h1>
+      {pp && <TrackOnMount name="purchase" params={pp} stripParam="paid" />}
       {one(sp, "paid") && <Notice kind="success">{t.account.paymentDone}</Notice>}
       {bookings.length === 0 ? <EmptyState text={t.account.noBookings} cta={t.account.findRoamer} href={href(locale, "/roamers")} /> : (
         <ul className="space-y-4">

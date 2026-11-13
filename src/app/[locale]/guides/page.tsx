@@ -4,7 +4,7 @@ import { href, locales } from "@/i18n/config";
 import { buildMetadata, breadcrumbLd } from "@/lib/seo";
 import { getAllCities, getCategories, getGuides, siteStats } from "@/lib/queries";
 import { fmt, num } from "@/lib/format";
-import { CtaBand, JsonLd, PageHero, SearchPill, StatStrip, SectionHeader, EmptyState } from "@/components/ui";
+import { Breadcrumbs, CtaBand, JsonLd, PageHero, SearchPill, StatStrip, SectionHeader, EmptyState } from "@/components/ui";
 import { GuideCardH, GuideTile } from "@/components/cards";
 import { AutoFilterForm, SortSelect } from "@/components/client";
 import { FilterAside, FilterGroup, arr, one, type SP } from "@/components/filters";
@@ -40,6 +40,7 @@ export default async function GuidesPage({ params, searchParams }: Props) {
       <PageHero title={t.guides.title} subtitle={t.guides.subtitle} image="/images/hero/cities.jpg">
         <SearchPill action={href(locale, "/guides")} placeholder={t.guides.searchPlaceholder} button={t.common.search} defaultValue={q} />
       </PageHero>
+      <div className="container-x mt-4"><Breadcrumbs items={[{ name: t.nav.home, href: href(locale) }, { name: t.guides.title }]} /></div>
       <StatStrip items={[
         { icon: "book", title: `${num(stats.guides, locale)} ${t.stats.guides}`, text: t.stats.guidesText },
         { icon: "users", title: `${num(stats.roamers, locale)} ${t.stats.roamers}`, text: t.stats.roamersText },

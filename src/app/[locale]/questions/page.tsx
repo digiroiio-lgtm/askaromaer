@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { LanguageNote } from "@/components/LanguageNote";
 import Image from "next/image";
 import { Suspense } from "react";
 import { resolveLocale } from "@/i18n";
@@ -7,7 +8,7 @@ import { buildMetadata, breadcrumbLd } from "@/lib/seo";
 import { getAllCities, getCategories, getGuides, getQuestions, getRoamers, questionFacets, siteStats } from "@/lib/queries";
 import { num } from "@/lib/format";
 import { Icon } from "@/components/Icon";
-import { Avatar, CtaBand, JsonLd, PageHero, Pagination, SearchPill, StatStrip, Stars, EmptyState } from "@/components/ui";
+import { Avatar, Breadcrumbs, CtaBand, JsonLd, PageHero, Pagination, SearchPill, StatStrip, Stars, EmptyState } from "@/components/ui";
 import { QuestionRow } from "@/components/cards";
 import { AutoFilterForm, SortSelect } from "@/components/client";
 import { FilterAside, FilterGroup, arr, one, pageNum, type SP } from "@/components/filters";
@@ -51,12 +52,14 @@ export default async function QuestionsPage({ params, searchParams }: Props) {
       <PageHero title={<>{t.questions.titleA} <em className="text-brand italic">{t.questions.titleB}</em></>} subtitle={t.questions.subtitle} image="/images/hero/questions.jpg">
         <SearchPill action={href(locale, "/questions")} placeholder={t.questions.searchPlaceholder} button={t.common.search} defaultValue={q} />
       </PageHero>
+      <div className="container-x mt-4"><Breadcrumbs items={[{ name: t.nav.home, href: href(locale) }, { name: t.nav.questions }]} /></div>
       <StatStrip items={[
         { icon: "chatRound", title: num(stats.questions, locale), text: t.questions.stat1 },
         { icon: "users", title: `${num(stats.roamers, locale)} ${t.stats.roamers}`, text: t.questions.stat2 },
         { icon: "bolt", title: t.questions.stat3Title, text: t.questions.stat3Text },
         { icon: "shield", title: t.questions.stat4Title, text: t.questions.stat4Text },
       ]} />
+      <LanguageNote locale={locale} t={t} items={res.items} city={cities[0]} category={categories[0]} />
       <div className="container-x mt-8 grid lg:grid-cols-[180px_1fr_260px] gap-6">
         <Suspense>
           <AutoFilterForm>

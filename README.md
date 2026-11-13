@@ -48,6 +48,13 @@ Production: `npm run build && npm start`. Use `SEED_MODE=base npm run db:seed` f
 - JSON-LD: Organization, WebSite (+SearchAction), BreadcrumbList, ItemList, Place, ProfilePage/Person, QAPage (only when answers exist), Product/Offer (+AggregateRating only from real reviews), Article, FAQPage.
 - **`SITE_INDEXABLE=false` (default) makes every page `noindex`.** Set it to `true` only after demo content is removed.
 
+## Analytics (GA4 + Search Console)
+Off by default. Set these env vars to switch it on:
+- `NEXT_PUBLIC_GA_MEASUREMENT_ID` (`G-XXXXXXXX`): loads GA4 with Consent Mode v2 (denied until the visitor accepts the cookie banner; the choice is kept in `localStorage`, footer link reopens it). Without it no script and no banner.
+- `NEXT_PUBLIC_GSC_VERIFICATION`: token for Search Console "HTML tag" verification (adds `google-site-verification`).
+
+Events (no personal data is sent): `page_view`, `cta_click` (any element with `data-track`; hub CTAs carry `data-track-page`), `generate_lead` (`lead_type` = `question` or `roamer_application`), `begin_checkout`, `purchase` (`item_type` = `booking` or `guide`). In GA4 mark `generate_lead` and `purchase` as key events. After verifying the domain in Search Console, submit `https://<site>/sitemap.xml`.
+
 ## Tests
 
 ```bash
